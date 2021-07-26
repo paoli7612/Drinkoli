@@ -9,6 +9,11 @@ class Drink extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'slug'
+    ];
+
     public function add(Ingredient $ingredient)
     {
         return $this->ingredients()->save($ingredient);
@@ -22,5 +27,10 @@ class Drink extends Model
             'drink_id',
             'ingredient_id'
         );
+    }
+
+    public function getRouteAttribute()
+    {
+        return '/dirnks/' . $this->slug;
     }
 }

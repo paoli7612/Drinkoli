@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
         Ingredient::create(['name' => 'Prosecco']);
         Ingredient::create(['name' => 'Selz']);
 
-        Drink::create(['name' => 'Aperol Spritz']);
-        Drink::create(['name' => 'Campari Spritz']);
+        Drink::create(['name' => 'Aperol Spritz', 'slug' => 'aperol-spritz']);
+        Drink::create(['name' => 'Campari Spritz', 'slug' => 'campari-spritz']);
 
         $aperol = Drink::all()->where('name', 'Aperol Spritz')->first();
         $aperol->add(Ingredient::all()->where('name', 'Aperol')->first());
