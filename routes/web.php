@@ -27,5 +27,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/ingredients', [IngredientController::class, 'index'])->name('ingredients');
 Route::get('/drinks', [DrinkController::class, 'index'])->name('drinks');
+Route::get('/drinks/{drink}', [DrinkController::class, 'show']);
 
 Route::post('/drink', [DrinkController::class, 'store'])->name('drink');

@@ -18,7 +18,9 @@
             @foreach ($drinks as $drink)
                 <div class="card">
                     <div class="card-header">
-                        {{ $drink->name }}
+                        <a href="{{ $drink->route }}">
+                            {{ $drink->name }}
+                        </a>
                     </div>
                     <div class="card-body">
                         <ul>

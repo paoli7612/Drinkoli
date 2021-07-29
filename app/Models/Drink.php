@@ -31,6 +31,11 @@ class Drink extends Model
 
     public function getRouteAttribute()
     {
-        return '/dirnks/' . $this->slug;
+        return '/drinks/' . $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

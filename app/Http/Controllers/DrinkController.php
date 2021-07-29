@@ -29,4 +29,11 @@ class DrinkController extends Controller
         $drink = Drink::all()->where('name', request('name'))->first();
         return redirect($drink->route);
     }
+
+    public function show(Drink $drink)
+    {
+        return view('drink', [
+            'drink' => $drink
+        ]);
+    }
 }
