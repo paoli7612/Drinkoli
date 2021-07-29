@@ -19,6 +19,7 @@ class CreateIngredientDrinkTable extends Migration
             $table->id();
             $table->foreignIdFor(Drink::class, 'drink_id');
             $table->foreignIdFor(Ingredient::class, 'ingredient_id');
+            $table->unique(array('drink_id', 'ingredient_id'));
         });
     }
 

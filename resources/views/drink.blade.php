@@ -19,7 +19,7 @@
         <div class="form-group">
             <div class="row mx-0">
                 <select name="ingredient_id" class="form-control col-sm-6 mb-3 mr-sm-3">
-                    @foreach (App\Models\Ingredient::all() as $ingredient)
+                    @foreach (App\Models\Ingredient::all()->where('drink_id', '!=', $drink->id) as $ingredient)
                         <option value="{{ $ingredient->id }}">{{ $ingredient->name }}</option>
                     @endforeach
                 </select>
