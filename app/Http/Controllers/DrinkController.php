@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Drink;
+use App\Models\Ingredient;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -35,5 +36,11 @@ class DrinkController extends Controller
         return view('drink', [
             'drink' => $drink
         ]);
+    }
+
+    public function add(Drink $drink)
+    {
+        $drink->add(Ingredient::find(request('ingredient_id')));
+        return redirect()->back();
     }
 }
