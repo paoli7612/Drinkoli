@@ -1,3 +1,3 @@
 ## Drinkoli
 
-<a href="tomaoli.altervista.org"> Test repository </a>
+<a href="http://tomaoli.altervista.org"> Test repository </a>
