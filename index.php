@@ -1,4 +1,7 @@
 <?php
+
+    $config = require('config.php');
+
     include 'core/functions.php';
     include 'core/Request.php';
     include 'core/Router.php';
@@ -7,7 +10,7 @@
 
     include 'models/Drink.php';
 
-    $database = new Database('root', '', 'my_tomaoli', '127.0.0.1');
+    $database = new Database($config['database']);
 
     $nav = new Navbar;
     $nav->add('', 'Home', 'fa fa-home');

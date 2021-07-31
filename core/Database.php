@@ -16,13 +16,14 @@
             $statement->execute();
         }
 
-        public function __construct($username, $password, $dbname, $host) {
-            $this->username = $username;
-            $this->password = $password;
-            $this->host = $host;
-            $this->dbname = $dbname;
+        public function __construct($config) {
+            
+            $this->username = $config['username'];
+            $this->password = $config['password'];
+            $this->host = $config['host'];
+            $this->dbname = $config['dbname'];
             try {
-                $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+                $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
             } catch (PDOException $exception) {
                 if ($exception->getCode() == 1049) // database non creato
                     $this->reset();
