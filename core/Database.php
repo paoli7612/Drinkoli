@@ -11,15 +11,16 @@
         private function reset()
         {
             $this->pdo = new PDO("mysql:host=$this->host", $this->username, $this->password);
-            $this->pdo->exec("CREATE DATABASE drinkoli; USE drinkoli");
+            $this->pdo->exec("CREATE DATABASE $this->dbname; USE drinkoli");
         }
 
-        public function __construct($username, $password, $host) {
+        public function __construct($username, $password, $dbname, $host) {
             $this->username = $username;
             $this->password = $password;
             $this->host = $host;
+            $this->dbname = $dbname;
             try {
-                $this->pdo = new PDO("mysql:host=$host;dbname=drinkoli", $username, $password);
+                $this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
             } catch (PDOException $exception) {
                 if ($exception->getCode() == 1049)
                     $this->reset();

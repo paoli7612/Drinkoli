@@ -18,7 +18,7 @@
     $router->get('ingredients', 'ingredients');
     $router->post('drinks', 'store-drink');
 
-    $database = new Database('root', '', '127.0.0.1');
+    $database = new Database('root', '', 'my_tomaoli', '127.0.0.1');
 
 
     require $router->direct(Request::uri(), Request::method());
