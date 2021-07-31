@@ -1,10 +1,23 @@
 <?php
-
     class Drink {
 
-        public static function create($name)
+        public $id;
+        public $name;
+        public $slug;
+
+        public static function create($database, $name)
         {
-        
+            $slug = slug($name);
+            $database->query("INSERT INTO drinks (`name`, `slug`) VALUES ('$name', '$slug');");
         }
 
+        public static function all(Database $database)
+        {
+            return $database->select_all("drinks");
+        }
+
+        public function route()
+        {
+            return 'drinks/' . $this->slug;
+        }
     }

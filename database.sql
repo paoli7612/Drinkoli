@@ -5,14 +5,14 @@ USE my_tomaoli;
 
 CREATE TABLE `drinks` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(32) UNIQUE NOT NULL,
+  `name` varchar(32) UNIQUE NOT NULL,
   `slug` varchar(32) UNIQUE NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
 CREATE TABLE `ingredients` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(32) UNIQUE NOT NULL,
+  `name` varchar(32) UNIQUE NOT NULL,
   `slug` varchar(32) UNIQUE NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;

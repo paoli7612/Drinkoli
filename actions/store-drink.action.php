@@ -1,5 +1,4 @@
 <?php
 
-    include 'models/Drink.php';
-    Drink::create($_POST['name']);
+    Drink::create($database, $_POST['name']);
     header('Location: drinks');

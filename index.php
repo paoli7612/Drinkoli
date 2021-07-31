@@ -1,9 +1,11 @@
 <?php
-
+    include 'core/functions.php';
     include 'core/Request.php';
     include 'core/Router.php';
     include 'core/Navbar.php';
     include 'core/Database.php';
+
+    include 'models/Drink.php';
 
     $nav = new Navbar;
     $nav->add('', 'Home', 'fa fa-home');
