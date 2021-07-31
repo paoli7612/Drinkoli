@@ -39,19 +39,18 @@
             return $s->fetchAll();
         }
 
-        public function select_all($table)
+        public function select_all($table, $className)
         {
             $statement = $this->pdo->query("SELECT * FROM {$table};");
-            $statement->setFetchMode(PDO::FETCH_CLASS, 'Drink');
+            $statement->setFetchMode(PDO::FETCH_CLASS, $className);
             return $statement->fetchAll();
         }
 
-        public function find($table, $column, $value)
+        public function find($table, $column, $value, $className)
         {
             $statement = $this->pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");
-            $statement->setFetchMode(PDO::FETCH_CLASS, 'Drink');
+            $statement->setFetchMode(PDO::FETCH_CLASS, $className);
             return $statement->fetchAll();
         }
-
 
     }

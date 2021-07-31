@@ -9,6 +9,7 @@
     include 'core/Database.php';
 
     include 'models/Drink.php';
+    include 'models/Ingredient.php';
 
     $database = new Database($config['database']);
 
@@ -21,15 +22,21 @@
     $router->get('', 'home');
     $router->get('drinks', 'drink/all');
     $router->get('drinks?new', 'drink/new');
-    $router->get('ingredients', 'ingredients');
+    $router->get('ingredients', 'ingredient/all');
+    $router->get('ingredients?new', 'ingredient/new');
     $router->get('reset', 'reset');
 
     foreach (Drink::all($database) as $drink) {
         $router->get($drink->route(), 'drink/show', $drink);
     }
 
-    $router->post('drinks', 'store-drink');
+    foreach (Ingredient::all($database) as $ingredient) {
+        $router->get($ingredient->route(), 'ingredient/show', $ingredient);
+    }
+    
 
+    $router->post('drinks', 'store-drink');
+    $router->post('ingredients', 'store-ingredient');
 
     require $router->direct(Request::uri(), Request::method());
 
