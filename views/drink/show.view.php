@@ -3,7 +3,7 @@
     $drink = Drink::find($database, $slug);
 ?>
 
-<?php $title = 'Drink' ?>
+<?php $title = 'Drink / '. $drink->name ?>
 <?php include 'views/layouts/page_start.php' ?>
 
 <h1><?= $drink->name ?></h1>
