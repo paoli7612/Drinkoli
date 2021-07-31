@@ -4,14 +4,17 @@
     include 'core/Router.php';
     include 'core/Navbar.php';
 
-    $r = new Router;
     
     $nav = new Navbar;
     $nav->add('', 'Home', 'fa fa-home');
-    $nav->add('', 'Drinks', 'fa fa-glass-cheers');
-    $nav->add('', 'Ingredients', 'fa fa-home');
+    $nav->add('drinks', 'Drinks', 'fa fa-cocktail');
+    $nav->add('ingredients', 'Ingredients', 'fa fa-boxes');
 
+    $r = new Router;
     $r->get('', 'views/home.php');
+    $r->get('drinks', 'views/drinks.php');
+    $r->get('ingredients', 'views/ingredients.php');
+
     require $r->direct(Request::uri(), Request::method());
 
 
