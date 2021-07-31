@@ -36,7 +36,7 @@
 
         public function direct($uri, $method)
         {
-            return $this->routes[$method][$uri];
+            return 'views/' . $this->routes[$method][$uri] . '.view.php';
         }
 
     }

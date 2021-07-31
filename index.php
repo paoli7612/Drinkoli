@@ -11,9 +11,10 @@
     $nav->add('ingredients', 'Ingredients', 'fa fa-boxes');
 
     $r = new Router;
-    $r->get('', 'views/home.php');
-    $r->get('drinks', 'views/drinks.php');
-    $r->get('ingredients', 'views/ingredients.php');
+    $r->get('', 'home');
+    $r->get('drinks', 'drinks');
+    $r->get('drinks/new', 'new-drink');
+    $r->get('ingredients', 'ingredients');
 
     require $r->direct(Request::uri(), Request::method());
 
