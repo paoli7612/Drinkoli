@@ -5,7 +5,7 @@
 <br>
 
 <div class="w3-panel">
-    <table class="w3-table-all">
+    <table class="w3-table-all w3-card-4">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -14,14 +14,9 @@
         </thead>
         <tbody>
         <?php foreach (Drink::all($database) as $drink): ?>
-            <tr>
+            <tr class="w3-hover-green" onclick="window.location='<?= $drink->route() ?>'">
                 <td><?= $drink->name ?></td>
                 <td><?= $drink->slug ?></td>
-                <td>
-                    <a href="<?= $drink->route() ?>">
-                        Vedi
-                    </a>
-                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>

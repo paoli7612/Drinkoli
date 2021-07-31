@@ -38,7 +38,14 @@
 
         public function select_all($table)
         {
-            $statement = $this->pdo->query("SELECT * FROM drinks");
+            $statement = $this->pdo->query("SELECT * FROM {$table};");
+            $statement->setFetchMode(PDO::FETCH_CLASS, 'Drink');
+            return $statement->fetchAll();
+        }
+
+        public function find($table, $column, $value)
+        {
+            $statement = $this->pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");
             $statement->setFetchMode(PDO::FETCH_CLASS, 'Drink');
             return $statement->fetchAll();
         }

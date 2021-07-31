@@ -13,7 +13,12 @@
 
         public static function all(Database $database)
         {
-            return $database->select_all("drinks");
+            return $database->select_all('drinks');
+        }
+
+        public static function find(Database $database, $slug)
+        {
+            return $database->find('drinks', 'slug' , $slug)[0];
         }
 
         public function route()

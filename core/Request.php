@@ -2,9 +2,9 @@
 
     class Request
     {
-        public static function uri()
+        public static function uri($remove = '')
         {
-            return trim($_SERVER['REQUEST_URI'], '/');
+            return str_replace($remove, "", trim($_SERVER['REQUEST_URI'], '/'));
         }
 
         public static function method()
