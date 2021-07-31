@@ -1,5 +1,5 @@
 <?php $title = 'Drinks' ?>
-<?php include 'layouts/page_start.php' ?>
+<?php include 'views/layouts/page_start.php' ?>
 
 <a href="/drinks?new"> Nuovo Drink </a>
 <br>
@@ -25,4 +25,4 @@
 
 
 
-<?php include 'layouts/page_end.php' ?>
+<?php include 'views/layouts/page_end.php' ?>

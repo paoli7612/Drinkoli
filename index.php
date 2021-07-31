@@ -19,13 +19,13 @@
 
     $router = new Router;
     $router->get('', 'home');
-    $router->get('drinks', 'drinks');
-    $router->get('drinks?new', 'new-drink');
+    $router->get('drinks', 'drink/all');
+    $router->get('drinks?new', 'drink/new');
     $router->get('ingredients', 'ingredients');
     $router->get('reset', 'reset');
 
     foreach (Drink::all($database) as $drink) {
-        $router->get($drink->route(), 'show-drink', $drink);
+        $router->get($drink->route(), 'drink/show', $drink);
     }
 
     $router->post('drinks', 'store-drink');

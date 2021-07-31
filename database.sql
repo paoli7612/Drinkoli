@@ -6,6 +6,7 @@ USE my_tomaoli;
 CREATE TABLE `drinks` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) UNIQUE NOT NULL,
+  `description` text, 
   `slug` varchar(32) UNIQUE NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;

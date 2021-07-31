@@ -4,8 +4,8 @@
 ?>
 
 <?php $title = 'Drink' ?>
-<?php include 'layouts/page_start.php' ?>
+<?php include 'views/layouts/page_start.php' ?>
 
 <h1><?= $drink->name ?></h1>
 
-<?php include 'layouts/page_end.php' ?>
+<?php include 'views/layouts/page_end.php' ?>

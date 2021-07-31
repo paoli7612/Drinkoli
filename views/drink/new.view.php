@@ -1,7 +1,5 @@
 <?php $title = 'New drink' ?>
-<?php include 'layouts/page_start.php' ?>
-
-
+<?php include 'views/layouts/page_start.php' ?>
 
 <div class="w3-panel w3-green w3-round-large w3-card-4">
     <form class="w3-panel" action="/drinks" method="post">
@@ -38,4 +36,4 @@
     }
 </script>
 
-<?php include 'layouts/page_end.php' ?>
+<?php include 'views/layouts/page_end.php' ?>
