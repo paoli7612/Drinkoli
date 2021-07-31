@@ -1,5 +1,9 @@
 <?php
 
+    // (get name of a drink)
+    // 1 esiste gia
+    // 0 non essite
+
     $config = require '../config.php';
 
     include '../core/Database.php';
