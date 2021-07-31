@@ -1,3 +1,3 @@
-<header style="background-color: lawngreen;">
+<header>
     <h1>Header</h1>
 </header>
