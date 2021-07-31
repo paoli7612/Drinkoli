@@ -2,8 +2,6 @@
 <?php include 'layouts/page_start.php' ?>
 
 
-<h1>New drink</h1>
-
 <div class="w3-panel w3-green w3-round-large w3-card-4">
     <form class="w3-panel" action="/drinks" method="post">
         <div class="w3-threequarter w3-padding">
@@ -16,6 +14,5 @@
         </div>
     </form>
 </div>
-
 
 <?php include 'layouts/page_end.php' ?>

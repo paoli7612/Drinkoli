@@ -10,13 +10,15 @@
     $nav->add('drinks', 'Drinks', 'fa fa-cocktail');
     $nav->add('ingredients', 'Ingredients', 'fa fa-boxes');
 
-    $r = new Router;
-    $r->get('', 'home');
-    $r->get('drinks', 'drinks');
-    $r->get('drinks/new', 'new-drink');
-    $r->get('ingredients', 'ingredients');
+    $router = new Router;
+    $router->get('', 'home');
+    $router->get('drinks', 'drinks');
+    $router->get('drinks?new', 'new-drink');
+    $router->get('ingredients', 'ingredients');
 
-    require $r->direct(Request::uri(), Request::method());
+    $router->post('drinks', 'store-drink');
+
+    require $router->direct(Request::uri(), Request::method());
 
 
 

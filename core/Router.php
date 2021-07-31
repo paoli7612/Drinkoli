@@ -36,7 +36,24 @@
 
         public function direct($uri, $method)
         {
-            return 'views/' . $this->routes[$method][$uri] . '.view.php';
+            $folder = $method == 'GET' ? 'views' : 'actions';
+            return $folder . '/' . $this->routes[$method][$uri] . ($method == 'GET' ? '.view.php' : '.action.php');
         }
 
+        public function print()
+        {
+            echo '<table class="w3-table-all">';
+            foreach ($this->routes as $method => $routes) {
+                echo '<thead><tr><th>' . $method . '</th></tr>';
+                echo '<tbody>';
+                foreach ($routes as $route => $dest) {
+                    echo '<tr>';
+                    echo '<td>' . $route . '</td>';
+                    echo '<td>' . $dest . '</td>';
+                    echo '</tr>';
+                }
+                echo '</tbody>';
+            }
+            echo '<table class="">';
+        }
     }
