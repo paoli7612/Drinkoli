@@ -33,7 +33,8 @@
 
         public function query($query)
         {
-            $this->pdo->exec($query);
+            $s = $this->pdo->prepare($query);
+            $s->execute();
         }
 
         public function select_all($table)
@@ -49,4 +50,6 @@
             $statement->setFetchMode(PDO::FETCH_CLASS, 'Drink');
             return $statement->fetchAll();
         }
+
+
     }
