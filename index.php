@@ -3,6 +3,7 @@
     include 'core/Request.php';
     include 'core/Router.php';
     include 'core/Navbar.php';
+    include 'core/Database.php';
 
     
     $nav = new Navbar;
@@ -15,8 +16,10 @@
     $router->get('drinks', 'drinks');
     $router->get('drinks?new', 'new-drink');
     $router->get('ingredients', 'ingredients');
-
     $router->post('drinks', 'store-drink');
+
+    $database = new Database('root', '', '127.0.0.1');
+
 
     require $router->direct(Request::uri(), Request::method());
 
