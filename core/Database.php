@@ -8,10 +8,14 @@
         private $password;
         private $host;
 
-        private function reset()
+        public function reset()
         {
             $this->pdo = new PDO("mysql:host=$this->host", $this->username, $this->password);
+            $this->pdo->exec("DROP DATABASE IF EXISTS my_tomaoli");
             $this->pdo->exec("CREATE DATABASE $this->dbname; USE drinkoli");
+            $query = file_get_contents("database.sql");
+            $statement = $this->pdo->prepare($query);
+            $statement->execute();
         }
 
         public function __construct($username, $password, $dbname, $host) {
@@ -29,4 +33,8 @@
             }
         }
 
+        public function query($query)
+        {
+            $this->pdo->exec($query);
+        }
     }
