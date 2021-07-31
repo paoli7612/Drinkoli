@@ -35,6 +35,7 @@
         {
             $s = $this->pdo->prepare($query);
             $s->execute();
+            return $s->fetchAll();
         }
 
         public function select_all($table)
