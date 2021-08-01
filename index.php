@@ -3,6 +3,7 @@
     $config = require('config.php');
 
     include 'core/functions.php';
+    include 'core/App.php';
     include 'core/Request.php';
     include 'core/Router.php';
     include 'core/Navbar.php';
@@ -17,6 +18,7 @@
     $nav->add('', 'Home', 'fa fa-home');
     $nav->add('drinks', 'Drinks', 'fa fa-cocktail');
     $nav->add('ingredients', 'Ingredients', 'fa fa-boxes');
+    $nav->add('settings', 'Settings', 'fa fa-cog');
 
     $router = new Router;
     $router->get('', 'home');
@@ -24,10 +26,13 @@
     $router->get('drinks?new', 'drink/new');
     $router->get('ingredients', 'ingredient/all');
     $router->get('ingredients?new', 'ingredient/new');
+    $router->get('settings', 'settings');
     $router->get('reset', 'reset');
 
     foreach (Drink::all($database) as $drink) {
-        $router->get($drink->route(), 'drink/show', $drink);
+        $router->get($drink->route(), 'drink/show');
+        $router->get($drink->route() . '?delete', 'drink/delete');
+        $router->post($drink->route() . '?delete', 'delete-drink');
     }
 
     foreach (Ingredient::all($database) as $ingredient) {

@@ -1,13 +1,14 @@
 <?php
-    $slug = Request::uri('drinks/');
+    $slug = Request::uri('drinks/', '?delete');
     $drink = Drink::find($database, $slug);
 ?>
 
 <?php $title = 'Drink / '. $drink->name ?>
 <?php include 'views/layouts/page_start.php' ?>
 
-<a href="/<?= Request::uri() ?>?delete"> Remove Drink </a>
-<br>
+<form action="/<?= Request::uri() ?>" method="post">
+    <input type="submit" value="Elimina">
+</form>
 
 <h1><?= $drink->name ?></h1>
 

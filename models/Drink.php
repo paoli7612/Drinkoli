@@ -11,6 +11,11 @@
             $database->query("INSERT INTO drinks (`name`, `slug`) VALUES ('$name', '$slug');");
         }
 
+        public static function delete($database, $slug)
+        {
+            $database->query("DELETE FROM `drinks` WHERE `slug`='$slug';");
+        }
+
         public static function all(Database $database)
         {
             return $database->select_all('drinks', 'Drink');

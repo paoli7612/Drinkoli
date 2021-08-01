@@ -17,3 +17,12 @@ CREATE TABLE `ingredients` (
   `slug` varchar(32) UNIQUE NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
+
+CREATE TABLE `options` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) UNIQUE NOT NULL,
+  `value` varchar(32) UNIQUE NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+INSERT INTO `options` (`name`, `value`) VALUES ('theme', 'green')
