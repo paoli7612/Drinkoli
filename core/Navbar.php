@@ -21,11 +21,9 @@
             array_push($this->items, new NavbarItem($link, $title, $icon));
         }
 
-        public function show()
+        public function show($title)
         {   
-            foreach ($this->items as $item) {
-                include 'partials/navbar-item.php';
-            }
+            include "partials/navbar.php";
         }
 
     };
