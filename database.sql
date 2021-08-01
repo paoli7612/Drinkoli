@@ -27,4 +27,11 @@ CREATE TABLE `ingredients` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
+CREATE TABLE `ingredient_drink` (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `ingredient_id` varchar(32) UNIQUE NOT NULL,
+  `drink_id` varchar(32) UNIQUE NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
 INSERT INTO `users` (`email`, `username`, `password`) VALUES ('admin@root', 'tomaoli', '')
