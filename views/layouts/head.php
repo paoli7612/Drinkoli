@@ -5,5 +5,5 @@
 <link href="/awesome-icons\css\all.css" rel="stylesheet">
 <title><?= $title ?></title>
 <link rel="stylesheet" href="/style/main.css">
-<link rel="stylesheet" id="linktheme" href="https://www.w3schools.com/lib/w3-theme-<?= App::theme($database) ?>.css">
+<link rel="stylesheet" id="linktheme" href="https://www.w3schools.com/lib/w3-theme-<?= Auth::theme() ?>.css">
 

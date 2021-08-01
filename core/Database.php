@@ -46,6 +46,13 @@
             return $statement->fetchAll();
         }
 
+        public function select_where($table, $className, $args)
+        {
+            $statement = $this->pdo->query("SELECT * FROM {$table} WHERE $args;");
+            $statement->setFetchMode(PDO::FETCH_CLASS, $className);
+            return $statement->fetchAll();
+        }
+
         public function find($table, $column, $value, $className)
         {
             $statement = $this->pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");

@@ -12,8 +12,8 @@
 
     $config = require('config.php');
     $database = new Database($config['database']);
-    $auth = new Auth($database);
-
+    Auth::init($database);
+    
     if (! Auth::$isLogin)
     {
         $nav = new Navbar;
@@ -27,8 +27,8 @@
         $router->get('sing-up', 'auth/sing-up');
         $router->get('reset', 'reset');
 
-        $router->post('login', 'auth/login');
-        $router->post('register', 'auth/register');
+        $router->post('sing-in', 'auth/login');
+        $router->post('sing-up', 'auth/register');
         
         $footer = Footer::empty();
         require $router->direct(Request::uri(), Request::method());
@@ -42,20 +42,19 @@
     $nav->add('', 'Home', 'fa fa-home');
     $nav->add('drinks', 'Drinks', 'fa fa-cocktail');
     $nav->add('ingredients', 'Ingredients', 'fa fa-boxes');
-    $nav->add('settings', 'Settings', 'fa fa-cog');
+    $nav->add('account', 'account', 'fa fa-user');
 
     $router = new Router;
-
     $router->get('sing', 'sing');
-
     $router->get('', 'home');
     $router->get('drinks', 'drink/all');
     $router->get('drinks?new', 'drink/new');
     $router->get('ingredients', 'ingredient/all');
     $router->get('ingredients?new', 'ingredient/new');
-    $router->get('settings', 'settings');
+    $router->get('account', 'account');
     $router->get('reset', 'reset');
 
+    $footer = new Footer;
 
     foreach (Drink::all($database) as $drink) {
         $router->get($drink->route(), 'drink/show');
@@ -69,6 +68,7 @@
     
     $router->post('drinks', 'store-drink');
     $router->post('ingredients', 'store-ingredient');
+    $router->post('logout', 'auth/logout');
 
     require $router->direct(Request::uri(), Request::method());
 

@@ -1,4 +1,3 @@
 <?php
-
-    Auth::login($_POST['nickname'], $_POST['password']);
-    header('Location: ');
+    Auth::login($_POST['username'], $_POST['password']);
+    header('Location: /');

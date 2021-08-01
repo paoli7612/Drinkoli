@@ -1,17 +1,25 @@
 <?php $title = 'Settings' ?>
 <?php include 'layouts/page_start.php' ?>
 
-<div class="w3-panel w3-theme w3-padding w3-round-large w3-card-4">
+
+
+<div class="w3-container w3-theme w3-padding w3-round-large w3-card-4 w3-margin-bottom">
     <label for="theme">Theme</label>
     <div class="w3-panel">
         <select onchange="cambia_tema(this.value)" name="theme" id="theme" class="w3-select w3-round-large">
             <?php foreach (App::themes() as $color): ?>
-                <option value="<?= $color ?>" <?= (App::theme($database) == $color) ? 'selected' : '' ?> ><?= $color ?></option>                
+                <option value="<?= $color ?>" <?= (Auth::theme() == $color) ? 'selected' : '' ?> ><?= $color ?></option>                
             <?php endforeach; ?>
         </select>
     </div>
-    
 </div>
+
+<form action="/logout" method="post">
+    <button class="w3-button w3-card-4 w3-round-large w3-theme" href="/logout" type="submit"> 
+        Disconnetti
+        <i class="fa fa-sign-out-alt"></i>
+    </button>
+</form>
 
 <script>
     var derror = $('div#error')[0];

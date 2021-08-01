@@ -6,7 +6,7 @@ USE my_tomaoli;
 CREATE TABLE `users` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `email` varchar(32) UNIQUE NOT NULL,
-  `nickname` varchar(32) UNIQUE NOT NULL,
+  `username` varchar(32) UNIQUE NOT NULL,
   `password` varchar(32) NOT NULL, 
   `theme` varchar(16) NOT NULL DEFAULT('green'), 
   PRIMARY KEY (`id`)
@@ -27,4 +27,4 @@ CREATE TABLE `ingredients` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `users` (`email`, `nickname`, `password`) VALUES ('admin@root', 'tomaoli', SHA(''))
+INSERT INTO `users` (`email`, `username`, `password`) VALUES ('admin@root', 'tomaoli', '')
