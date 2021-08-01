@@ -4,13 +4,14 @@
 
         public static $isLogin;
         private static $database;
-        private static $user;
+        public static $user;
         
         public static function init($database)
         {
             session_start();
             Auth::$database = $database;
-            Auth::$isLogin = array_key_exists('login_id', $_SESSION);
+            if (Auth::$isLogin = array_key_exists('login_id', $_SESSION))
+                Auth::$user = Auth::$database->select_where('users', 'User', " id=" . $_SESSION['login_id'] . ";")[0]; 
         }
 
         public static function login($username, $password)
@@ -27,5 +28,27 @@
         public static function theme()
         {
             return Auth::$user->theme ?? 'green';
+        }
+
+        public static function save_user()
+        {
+            $user = Auth::$user;
+
+            print_r("
+            UPDATE users 
+            SET 
+                theme='$user->theme',
+                username='$user->username',
+            WHERE
+                `id` = '$user->id';
+        ");
+            Auth::$database->query("
+                UPDATE users 
+                SET 
+                    theme='$user->theme',
+                    username='$user->username'
+                WHERE
+                    `id` = '$user->id';
+            ");
         }
     }

@@ -8,7 +8,10 @@
     include 'core/Footer.php';
     include 'core/Database.php';
     include 'core/Auth.php';
-
+    
+    include 'models/Drink.php';
+    include 'models/Ingredient.php';
+    include 'models/User.php';
 
     $config = require('config.php');
     $database = new Database($config['database']);
@@ -35,8 +38,7 @@
         die();
     }
 
-    include 'models/Drink.php';
-    include 'models/Ingredient.php';
+
 
     $nav = new Navbar;
     $nav->add('', 'Home', 'fa fa-home');
@@ -69,6 +71,7 @@
     $router->post('drinks', 'store-drink');
     $router->post('ingredients', 'store-ingredient');
     $router->post('logout', 'auth/logout');
+    $router->post('account', 'account');
 
     require $router->direct(Request::uri(), Request::method());
 
