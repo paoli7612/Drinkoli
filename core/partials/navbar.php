@@ -6,4 +6,5 @@
     <span class="w3-hide-medium w3-hide-large w3-bar-item w3-right">
         <?= $title ?>
     </span>
+
 </div>
