@@ -4,7 +4,7 @@
     // 1 esiste gia
     // 0 non essite
 
-    $config = require '../config.php';
+    $config = require_once '../config.php';
 
     include '../core/Database.php';
     include '../models/Drink.php';

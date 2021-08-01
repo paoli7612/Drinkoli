@@ -13,7 +13,7 @@
     include 'models/Ingredient.php';
     include 'models/User.php';
 
-    $config = require('config.php');
+    $config = require_once('config.php');
     $database = new Database($config['database']);
     Auth::init($database);
     
@@ -34,7 +34,7 @@
         $router->post('sing-up', 'auth/register');
         
         $footer = Footer::empty();
-        require $router->direct(Request::uri(), Request::method());
+        require_once $router->direct(Request::uri(), Request::method());
         die();
     }
 
@@ -73,7 +73,7 @@
     $router->post('logout', 'auth/logout');
     $router->post('account', 'account');
 
-    require $router->direct(Request::uri(), Request::method());
+    require_once $router->direct(Request::uri(), Request::method());
 
     
 

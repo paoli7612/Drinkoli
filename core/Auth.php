@@ -16,7 +16,7 @@
 
         public static function login($username, $password)
         {
-            require 'models/User.php';
+            require_once 'models/User.php';
             $res = Auth::$database->select_where('users', 'User', " username='$username' AND  password='$password';");
             if (count($res) == 1)
             {
