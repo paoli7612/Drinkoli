@@ -20,12 +20,17 @@
         $nav->add('sing-in', 'Sing-in', 'fa fa-sign-in-alt');
         $nav->add('sing-up', 'Sing-up', 'fa fa-user-plus');
 
+
         $router = new Router;
+        $router->redirect('', 'sing-in');
         $router->get('sing-in', 'auth/sing-in');
         $router->get('sing-up', 'auth/sing-up');
+        $router->get('reset', 'reset');
 
-        $footer = new Footer;
-
+        $router->post('login', 'auth/login');
+        $router->post('register', 'auth/register');
+        
+        $footer = Footer::empty();
         require $router->direct(Request::uri(), Request::method());
         die();
     }

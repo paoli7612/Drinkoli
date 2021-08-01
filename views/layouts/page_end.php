@@ -1,6 +1,5 @@
-</div>
+        </div>
+        <?php $footer->show() ?>
 
-<?php include 'footer.php'?>
-
-</body>
+    </body>
 </html>

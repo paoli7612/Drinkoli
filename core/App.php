@@ -10,6 +10,7 @@
 
         public static function theme(Database $database)
         {
+            return 'green';
             return $database->query("SELECT * FROM options WHERE name='theme'")[0]['value'];
         }
 

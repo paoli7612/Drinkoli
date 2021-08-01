@@ -2,11 +2,13 @@
 
     class Router {
 
+        protected $redir = [];
+
         protected $routes = [
             'GET' => [],
             'POST' => [],
             'PUT' => [],
-            'DELETE' => []
+            'DELETE' => [],
         ];
 
         private function add($uri, $method, $dest)
@@ -36,8 +38,16 @@
 
         public function direct($uri, $method)
         {
+            if (array_key_exists($uri, $this->redir))
+                header('Location: ' . $this->redir[$uri]);
+
             $folder = $method == 'GET' ? 'views' : 'actions';
             return $folder . '/' . $this->routes[$method][$uri] . ($method == 'GET' ? '.view.php' : '.action.php');
+        }
+
+        public function redirect($uri, $dest)
+        {
+            $this->redir[$uri] = $dest;
         }
 
         public function print()

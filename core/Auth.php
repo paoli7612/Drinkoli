@@ -11,4 +11,9 @@
             Auth::$database = $database;
             Auth::$isLogin = array_key_exists('login_id', $_SESSION);
         }
+
+        public static function login($username, $password)
+        {
+            
+        }
     }
