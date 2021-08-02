@@ -14,7 +14,7 @@
         <button type="button" onclick="rimuovi_ingrediente(this.parentNode)" class="w3-circle w3-button w3-white w3-card-2 w3-margin-left" onclick="aggiungi_ingrediente()">
             <i class="fa fa-trash"></i>
         </button>
-        <select class="w3-half w3-select w3-round-large w3-margin-bottom w3-card-2" name="ingredient_id">
+        <select class="w3-half w3-select w3-round-large w3-margin-bottom w3-card-2">
             <option value="" selected disabled> --- </option>
             <?php foreach (Ingredient::all($database) as $ingredient): ?>
                 <option value="<?= $ingredient->id ?>"><?= $ingredient->name ?></option>

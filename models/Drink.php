@@ -35,7 +35,7 @@
 
         public function load($database)
         {
-            $this->ingredients = $database->query("SELECT * FROM ingredient_drink WHERE drink_id=$this->id");
+            $this->ingredients = $database->query("SELECT * FROM ingredient_drink, ingredients WHERE drink_id=$this->id AND ingredient_id=ingredients.id");
         }
 
         public function add_ingredient($database, $ingredient_id)
