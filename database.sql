@@ -34,4 +34,16 @@ CREATE TABLE `ingredient_drink` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `users` (`email`, `username`, `password`) VALUES ('admin@root', 'tomaoli', '')
+INSERT INTO `users` (`email`, `username`, `password`) VALUES ('admin@root', 'tomaoli', '');
+
+INSERT INTO `ingredients` (`name`, `slug`) VALUES
+  ('Campari', 'campari'),
+  ('Aperol', 'aperol'),
+  ('Rum bianco', 'rum-bianco'),
+  ('Rum scuro', 'rum-scuro');
+
+INSERT INTO `drinks` (`name`, `slug`) VALUES
+  ('Aperol spritz', 'aperol-spritz'),
+  ('Campari spritz', 'campari-spritz'),
+  ('Gin lemon', 'gin-lemon'),
+  ('Americano', 'americano');
