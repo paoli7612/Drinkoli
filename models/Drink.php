@@ -5,6 +5,8 @@
         public $name;
         public $slug;
 
+        public $ingredients;
+
         public static function create($database, $name)
         {
             $slug = slug($name);
@@ -29,5 +31,10 @@
         public function route()
         {
             return 'drinks/' . $this->slug;
+        }
+
+        public function load($database)
+        {
+            $this->ingredients = $database->query("SELECT * FROM ingredient_drink WHERE drink_id=$this->id");
         }
     }

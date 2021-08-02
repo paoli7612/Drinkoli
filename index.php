@@ -61,7 +61,9 @@
     foreach (Drink::all($database) as $drink) {
         $router->get($drink->route(), 'drink/show');
         $router->get($drink->route() . '?delete', 'drink/delete');
+        $router->get($drink->route() . '?edit', 'drink/edit');
         $router->post($drink->route() . '?delete', 'delete-drink');
+        $router->post($drink->route(), 'drink-set-ingredients');
     }
 
     foreach (Ingredient::all($database) as $ingredient) {

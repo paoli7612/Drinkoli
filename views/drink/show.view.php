@@ -6,7 +6,14 @@
 <?php $title = 'Drink / '. $drink->name ?>
 <?php include 'views/layouts/page_start.php' ?>
 
-<a href="/<?= Request::uri() ?>?delete"> Remove Drink </a>
+<a class="w3-button w3-theme" href="/<?= Request::uri() ?>?delete">
+    <i calss="fas fa-trash"></i>
+    Remove Drink
+</a>
+<a clas="w3-button w3-theme" href="/<?= Request::uri() ?>?edit">
+    <i calss="fas fa-edit"></i>
+    Edit Drink
+</a>
 <br>
 
 <h1><?= $drink->name ?></h1>
