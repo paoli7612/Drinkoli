@@ -60,4 +60,14 @@
             return $statement->fetchAll();
         }
 
+        public function create($table, $columns, $values)
+        {
+            $this->query("INSERT INTO $table ($columns) VALUES ($values);");
+        }
+
+        public function delete($table, $where)
+        {
+            $this->query("DELETE FROM $table WHERE $where;");
+        }
+
     }

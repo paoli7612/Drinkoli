@@ -37,4 +37,14 @@
         {
             $this->ingredients = $database->query("SELECT * FROM ingredient_drink WHERE drink_id=$this->id");
         }
+
+        public function add_ingredient($database, $ingredient_id)
+        {
+            $database->create('ingredient_drink', "`drink_id`, `ingredient_id`", "$this->id, $ingredient_id");
+        }
+
+        public function remove_ingredients($database)
+        {
+            $database->delete('ingredient_drink', "drink_id=$this->id");
+        }
     }

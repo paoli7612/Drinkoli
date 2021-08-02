@@ -43,6 +43,7 @@
     var tot = 0;
 
     var aggiungi_ingrediente = function (id) {
+        console.log(id);
         tot++;
         var clone = $('#ingredient').clone();
         clone.children()[1].name = tot;
@@ -56,7 +57,7 @@
     }
     
     <?php foreach ($drink->ingredients as $ingredient): ?>
-        aggiungi_ingrediente(<?= $ingredient['id'] ?>);
+        aggiungi_ingrediente(<?= $ingredient['ingredient_id'] ?>);
     <?php endforeach; ?>
     
 </script>

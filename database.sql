@@ -29,8 +29,8 @@ CREATE TABLE `ingredients` (
 
 CREATE TABLE `ingredient_drink` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
-  `ingredient_id` varchar(32) UNIQUE NOT NULL,
-  `drink_id` varchar(32) UNIQUE NOT NULL,
+  `ingredient_id` varchar(32) NOT NULL,
+  `drink_id` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -40,6 +40,8 @@ INSERT INTO `ingredients` (`name`, `slug`) VALUES
   ('Campari', 'campari'),
   ('Aperol', 'aperol'),
   ('Rum bianco', 'rum-bianco'),
+  ('Prosecco', 'prosecco'),
+  ('Selz', 'selz'),
   ('Rum scuro', 'rum-scuro');
 
 INSERT INTO `drinks` (`name`, `slug`) VALUES
