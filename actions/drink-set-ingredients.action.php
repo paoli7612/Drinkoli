@@ -9,7 +9,7 @@
         $drink->add_ingredient($database, $ingredient_id);
     }
 
-    //header('Location: /' . $drink->route() );
+    header('Location: /' . $drink->route() );
 
 
 

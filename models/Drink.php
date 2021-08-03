@@ -18,9 +18,9 @@
             $database->query("DELETE FROM `drinks` WHERE `slug`='$slug';");
         }
 
-        public static function all(Database $database)
+        public static function all()
         {
-            return $database->select_all('drinks', 'Drink');
+            return Database::select_all('drinks', 'Drink');
         }
 
         public static function find(Database $database, $slug)

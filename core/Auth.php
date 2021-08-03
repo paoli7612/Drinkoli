@@ -6,12 +6,11 @@
         private static $database;
         public static $user;
         
-        public static function init($database)
+        public static function init()
         {
             session_start();
-            Auth::$database = $database;
             if (Auth::$isLogin = array_key_exists('login_id', $_SESSION))
-                Auth::$user = Auth::$database->select_where('users', 'User', " id=" . $_SESSION['login_id'] . ";")[0]; 
+                Auth::$user = Database::select_where('users', 'User', " id=" . $_SESSION['login_id'] . ";")[0]; 
         }
 
         public static function login($username, $password)
