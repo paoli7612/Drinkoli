@@ -1,7 +1,7 @@
 <?php
     print_r($_POST);
     $slug = Request::uri('drinks/', '?delete');
-    $drink = Drink::find($database, $slug);
+    $drink = Drink::find($slug);
 
     $drink->remove_ingredients($database);
 

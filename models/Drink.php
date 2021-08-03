@@ -15,7 +15,7 @@
 
         public static function delete($slug)
         {
-            //Database::delete('drinks', `slug`, "'$slug'", 'Drink');
+            Database::delete('drinks', "`slug`='$slug'");
         }
 
         public static function all()

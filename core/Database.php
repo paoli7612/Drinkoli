@@ -63,7 +63,7 @@
 
         public static function delete($table, $where)
         {
-            $this->query("DELETE FROM $table WHERE $where;");
+            self::query("DELETE FROM $table WHERE $where;");
         }
 
     }

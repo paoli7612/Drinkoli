@@ -8,7 +8,7 @@
         public static function create($name)
         {
             $slug = slug($name);
-            $database->query("INSERT INTO ingredients (`name`, `slug`) VALUES ('$name', '$slug');");
+            Database::create('ingredients', "(`name`, `slug`)", "'$name', '$slug'");
         }
 
         public static function all()
@@ -16,9 +16,9 @@
             return Database::select_all('ingredients', 'Ingredient');
         }
 
-        public static function find($table, $slug)
+        public static function find($slug)
         {
-            return Database::find($table, 'slug' , $slug, 'Ingredient')[0];
+            return Database::find('ingredients', 'slug' , $slug, 'Ingredient');
         }
 
         public function route()

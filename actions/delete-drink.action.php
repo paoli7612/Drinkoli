@@ -1,6 +1,6 @@
 <?php
 
-    Drink::delete($database, Request::uri('drinks/', '?delete'));
+    Drink::delete(Request::uri('drinks/', '?delete'));
     header('Location: /drinks');
 
 

@@ -1,11 +1,11 @@
 <?php
     $slug = Request::uri('ingredients/');
-    $drink = Ingredient::find($database, 'ingredients', $slug);
+    $ingredient = Ingredient::find('ingredients', $slug);
 ?>
 
-<?php $title = 'Drink / '. $drink->name ?>
+<?php $title = 'Drink / '. $ingredient->name ?>
 <?php include 'views/layouts/page_start.php' ?>
 
-<h1><?= $drink->name ?></h1>
+<h1><?= $ingredient->name ?></h1>
 
 <?php include 'views/layouts/page_end.php' ?>

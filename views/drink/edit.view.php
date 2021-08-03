@@ -1,7 +1,7 @@
 <?php
     $slug = Request::uri('drinks/', '?edit');
-    $drink = Drink::find($database, $slug);
-    $drink->load($database);
+    $drink = Drink::find($slug);
+    $drink->load();
 ?>
 
 <?php $title = 'Drink / '. $drink->name ?>
