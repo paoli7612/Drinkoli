@@ -15,13 +15,18 @@
 
         public static function login($username, $password)
         {
-            require_once 'models/User.php';
             $res = Database::select_where('users', 'User', " username='$username' AND  password='$password';");
             if (count($res) == 1)
             {
                 Auth::$user = $res[0];
                 $_SESSION['login_id'] = Auth::$user->id;
             }
+        }
+
+        public static function register($email, $username, $password)
+        {
+            Database::create('users', "`email`, `username`, `password`", "'$email', '$username', '$password'");
+            Auth::login($username, $password);
         }
         
         public static function theme()
