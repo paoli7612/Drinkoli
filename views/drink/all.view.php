@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         <?php foreach (Drink::all() as $drink): ?>
-            <tr class="w3-hover-theme" onclick="window.location='<?= $drink->route() ?>'">
+            <tr class="w3-hover-theme" style="cursor: pointer;" onclick="window.location='<?= $drink->route() ?>'">
                 <td><?= $drink->name ?></td>
                 <td><?= $drink->slug ?></td>
             </tr>

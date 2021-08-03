@@ -13,14 +13,14 @@
 
 <?php $tools->show('tools') ?>
 
-<h1><?= $drink->name ?></h1>
+<div class="w3-panel w3-theme-l2 w3-card-4 w3-round-large">
+    <h1 class="w3-center"><?= $drink->name ?></h1>
+    <ul>
+        <?php foreach ($drink->ingredients as $ingredient): ?>
+            <li><?php print_r($ingredient['name']) ?></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
 
-<table class="w3-table-all">
-    <?php foreach ($drink->ingredients as $ingredient): ?>
-        <tr>
-            <td><?php print_r($ingredient['name']) ?></td>
-        </tr>
-    <?php endforeach; ?>
-</table>
 
 <?php include 'views/layouts/page_end.php' ?>

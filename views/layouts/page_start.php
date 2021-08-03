@@ -6,7 +6,7 @@
 <body>
     <?php include 'header.php'?>
 
-    <div class="w3-container w3-content w3-padding-64">
+    <div class="w3-container w3-content">
     
 
 
