@@ -47,7 +47,7 @@
 
     $footer = new Footer;
 
-    foreach (Drink::all($database) as $drink) {
+    foreach (Drink::all() as $drink) {
         $router->get($drink->route(), 'drink/show');
         $router->get($drink->route() . '?delete', 'drink/delete');
         $router->get($drink->route() . '?edit', 'drink/edit');
@@ -55,7 +55,7 @@
         $router->post($drink->route(), 'drink-set-ingredients');
     }
 
-    foreach (Ingredient::all($database) as $ingredient) {
+    foreach (Ingredient::all() as $ingredient) {
         $router->get($ingredient->route(), 'ingredient/show', $ingredient);
     }
     

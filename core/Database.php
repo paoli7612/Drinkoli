@@ -8,7 +8,8 @@
 
         public static function reset()
         {
-            Database::$pdo = new PDO("mysql:host=".self::$config->host, self::$config->username, self::$config->password);
+            $config = self::$config;
+            Database::$pdo = new PDO("mysql:host=" . $config['host'], $config['username'], $config['password']);
             $query = file_get_contents("database.sql");
             self::query($query);
         }
@@ -48,9 +49,9 @@
             return $statement->fetchAll();
         }
 
-        public function find($table, $column, $value, $className)
+        public static function find($table, $column, $value, $className)
         {
-            $statement = $this->pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");
+            $statement = self::$pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");
             $statement->setFetchMode(PDO::FETCH_CLASS, $className);
             return $statement->fetchAll();
         }

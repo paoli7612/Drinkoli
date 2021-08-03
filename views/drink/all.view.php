@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach (Drink::all($database) as $drink): ?>
+        <?php foreach (Drink::all() as $drink): ?>
             <tr class="w3-hover-theme" onclick="window.location='<?= $drink->route() ?>'">
                 <td><?= $drink->name ?></td>
                 <td><?= $drink->slug ?></td>
