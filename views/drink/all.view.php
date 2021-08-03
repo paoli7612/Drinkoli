@@ -1,8 +1,13 @@
-<?php $title = 'Drinks' ?>
-<?php include 'views/layouts/page_start.php' ?>
+<?php
+    $title = 'Drinks';
+    
+    include 'views/layouts/page_start.php';
 
-<a href="/drinks?new"> Nuovo Drink </a>
-<br>
+    $tools = new ButtonList;
+    $tools->add("/drinks?new", 'New Drink', 'fas fa-plus');
+?>
+
+<?php $tools->show('tools') ?>
 
 <div class="w3-panel">
     <table class="w3-table-all w3-card-4">

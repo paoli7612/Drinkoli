@@ -4,12 +4,13 @@ include 'bootstrap.php';
 App::init();
 Database::init();
 Auth::init();
+$navbar = new ButtonList;
 
 if (Auth::$isLogin) {
-    Navbar::add('', 'Home', 'fa fa-home');
-    Navbar::add('drinks', 'Drinks', 'fa fa-cocktail');
-    Navbar::add('ingredients', 'Ingredients', 'fa fa-boxes');
-    Navbar::add('account', 'account', 'fa fa-user');
+    $navbar->add('', 'Home', 'fa fa-home');
+    $navbar->add('drinks', 'Drinks', 'fa fa-cocktail');
+    $navbar->add('ingredients', 'Ingredients', 'fa fa-boxes');
+    $navbar->add('account', 'account', 'fa fa-user');
 
     Router::get('sing', 'sing');
     Router::get('', 'home');
@@ -39,8 +40,8 @@ if (Auth::$isLogin) {
 
     require Router::direct(Request::uri(), Request::method());
 } else {
-    Navbar::add('sing-in', 'Sing-in', 'fa fa-sign-in-alt');
-    Navbar::add('sing-up', 'Sing-up', 'fa fa-user-plus');
+    $navbar->add('sing-in', 'Sing-in', 'fa fa-sign-in-alt');
+    $navbar->add('sing-up', 'Sing-up', 'fa fa-user-plus');
 
     Router::redirect('', 'sing-in');
     Router::get('sing-in', 'auth/sing-in');

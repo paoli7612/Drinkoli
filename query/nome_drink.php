@@ -5,16 +5,14 @@
     // 0 non essite
 
     $config = require_once '../config.php';
+    chdir('../');
+    include 'bootstrap.php';
 
-    include '../core/Database.php';
-    include '../models/Drink.php';
+    App::init();
+    Database::init();
+    Auth::init();
 
-    $database = new Database($config['database']);
-
-    $result = $database->query("SELECT id FROM drinks WHERE name = '" . $_GET['name'] . "';");
-
-    if (count($result) > 0)
-        echo 1;
-    else
+    if (empty(Database::select_where('drinks', 'Drink', "`name` = '".$_GET['name']."';")))
         echo 0;
+    else echo 1;
 
