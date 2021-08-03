@@ -6,8 +6,4 @@
 <title><?= $title ?></title>
 <link rel="stylesheet" href="/style/main.css">
 <link rel="stylesheet" id="linktheme" href="https://www.w3schools.com/lib/w3-theme-<?= Auth::theme() ?>.css">
-<style>
-    body {
-        background-image: url('/images/back.png');
-    }
-</style>
+<style> body { background-image: url('/images/back.png'); } </style>

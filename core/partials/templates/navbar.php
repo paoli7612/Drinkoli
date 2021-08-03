@@ -1,6 +1,8 @@
+<?php $i = 1; ?>
 <div class="w3-panel w3-card-4 w3-theme w3-bar">
     <?php foreach ($this->items as $item): ?>
-        <a class="w3-btn w3-bar-item <?= (Request::uri() == $item->link) ? 'w3-white' : '' ?>" href="/<?= $item->link ?>">
+        <?php $i = ($i+1)%2 ?>
+        <a class="w3-btn  w3-bar-item <?= (Request::uri() == $item->link) ? 'w3-white' : 'w3-theme-l'. $i ?>" href="/<?= $item->link ?>">
             <span class="w3-hide-small">
                 <?= $item->title ?>
             </span>    
