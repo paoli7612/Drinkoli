@@ -1,3 +1,3 @@
 <header class="">
-    <?php $nav->show($title) ?>
+    <?php Navbar::show($title) ?>
 </header>

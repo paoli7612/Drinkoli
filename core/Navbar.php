@@ -14,16 +14,15 @@
 
     class Navbar {
 
-        private $items = [];
+        private static $items = [];
 
-        public function add($link, $title, $icon)
+        public static function add($link, $title, $icon)
         {
-            array_push($this->items, new NavbarItem($link, $title, $icon));
+            array_push(self::$items, new NavbarItem($link, $title, $icon));
         }
 
-        public function show($title)
+        public static function show()
         {   
             include "partials/navbar.php";
         }
-
     };

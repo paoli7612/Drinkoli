@@ -1,6 +1,6 @@
 <?php
     $slug = Request::uri('ingredients/');
-    $ingredient = Ingredient::find('ingredients', $slug);
+    $ingredient = Ingredient::find($slug);
 ?>
 
 <?php $title = 'Drink / '. $ingredient->name ?>

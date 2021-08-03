@@ -8,18 +8,15 @@
 
         public static function reset()
         {
-            $config = self::$config;
-            Database::$pdo = new PDO("mysql:host=" . $config['host'], $config['username'], $config['password']);
+            Database::$pdo = new PDO("mysql:host=" . self::$config['host'], self::$config['username'], self::$config['password']);
             $query = file_get_contents("database.sql");
             self::query($query);
         }
 
-        public static function init($config) {
-            
-            Database::$config = $config;
-
+        public static function init() {
+            self::$config = App::$config['database'];
             try {
-                self::$pdo = new PDO("mysql:host=" . $config['host'] . ";dbname=" . $config['dbname'], $config['username'], $config['password']);
+                self::$pdo = new PDO("mysql:host=" . self::$config['host'] . ";dbname=" . self::$config['dbname'], self::$config['username'], self::$config['password']);
             } catch (PDOException $exception) {
                 if ($exception->getCode() == 1049) // database non creato
                     self::reset();

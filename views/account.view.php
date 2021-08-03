@@ -1,8 +1,6 @@
 <?php $title = 'Settings' ?>
 <?php include 'layouts/page_start.php' ?>
 
-
-
 <div class="w3-container w3-theme w3-padding w3-round-large w3-card-4 w3-margin-bottom">
     <label for="theme">Theme</label>
     <div class="w3-panel">
@@ -16,8 +14,6 @@
                 Salva
             </button>
         </form>
-
-
     </div>
 </div>
 
