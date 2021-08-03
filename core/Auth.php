@@ -16,7 +16,7 @@
         public static function login($username, $password)
         {
             require_once 'models/User.php';
-            $res = Auth::$database->select_where('users', 'User', " username='$username' AND  password='$password';");
+            $res = Database::select_where('users', 'User', " username='$username' AND  password='$password';");
             if (count($res) == 1)
             {
                 Auth::$user = $res[0];
@@ -33,15 +33,7 @@
         {
             $user = Auth::$user;
 
-            print_r("
-            UPDATE users 
-            SET 
-                theme='$user->theme',
-                username='$user->username',
-            WHERE
-                `id` = '$user->id';
-        ");
-            Auth::$database->query("
+            Database::query("
                 UPDATE users 
                 SET 
                     theme='$user->theme',

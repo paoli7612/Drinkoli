@@ -10,7 +10,7 @@
         public static function create($database, $name)
         {
             $slug = slug($name);
-            $database->query("INSERT INTO drinks (`name`, `slug`) VALUES ('$name', '$slug');");
+            Database::create("drinks", "`name`, `slug`", "'$name', '$slug'");
         }
 
         public static function delete($database, $slug)
