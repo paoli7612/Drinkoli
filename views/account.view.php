@@ -1,5 +1,13 @@
-<?php $title = 'Settings' ?>
-<?php include 'layouts/page_start.php' ?>
+<?php
+    $title = 'Settings';
+    include 'layouts/page_start.php';
+
+    $tools = new ButtonList;
+    $tools->add("/remove_account", 'Remove Drink', 'fas fa-trash');
+    $tools->add("#logout", 'Logout', 'fas fa-sign-out-alt');
+?>
+
+<?php $tools->show('tools') ?>
 
 <div class="w3-container w3-theme w3-padding w3-round-large w3-card-4 w3-margin-bottom">
     <label for="theme">Theme</label>
@@ -17,7 +25,7 @@
     </div>
 </div>
 
-<form action="/logout" method="post">
+<form id="logout" action="/logout" method="post">
     <button class="w3-button w3-card-4 w3-round-large w3-theme" href="/logout" type="submit">
         Disconnetti
         <i class="fa fa-sign-out-alt"></i>
