@@ -2,52 +2,52 @@
 
     class Router {
 
-        protected $redir = [];
+        protected static $redir = [];
 
-        protected $routes = [
+        protected static $routes = [
             'GET' => [],
             'POST' => [],
             'PUT' => [],
             'DELETE' => [],
         ];
 
-        private function add($uri, $method, $dest)
+        private static function add($uri, $method, $dest)
         {
-            $this->routes[$method][$uri] = $dest;
+            self::$routes[$method][$uri] = $dest;
         }
 
-        public function get($uri, $dest)
+        public static function get($uri, $dest)
         {
-            $this->add($uri, 'GET', $dest);
+            self::add($uri, 'GET', $dest);
         }
 
-        public function post($uri, $dest)
+        public static function post($uri, $dest)
         {
-            $this->add($uri, 'POST', $dest);
+            self::add($uri, 'POST', $dest);
         }
 
-        public function put($uri, $dest)
+        public static function put($uri, $dest)
         {
-            $this->add($uri, 'PUT', $dest);
+            self::add($uri, 'PUT', $dest);
         }
 
-        public function delete($uri, $dest)
+        public static function delete($uri, $dest)
         {
-            $this->add($uri, 'DELETE', $dest);
+            self::add($uri, 'DELETE', $dest);
         }
 
-        public function direct($uri, $method)
+        public static function direct($uri, $method)
         {
-            if (array_key_exists($uri, $this->redir))
-                header('Location: ' . $this->redir[$uri]);
+            if (array_key_exists($uri, self::$redir))
+                header('Location: ' . self::$redir[$uri]);
 
             $folder = $method == 'GET' ? 'views' : 'actions';
-            return $folder . '/' . $this->routes[$method][$uri] . ($method == 'GET' ? '.view.php' : '.action.php');
+            return $folder . '/' . self::$routes[$method][$uri] . ($method == 'GET' ? '.view.php' : '.action.php');
         }
 
-        public function redirect($uri, $dest)
+        public static function redirect($uri, $dest)
         {
-            $this->redir[$uri] = $dest;
+            self::$redir[$uri] = $dest;
         }
 
         public function print()

@@ -1,5 +1,5 @@
         </div>
-        <?php $footer->show() ?>
+        <?php Footer::show() ?>
 
     </body>
 </html>

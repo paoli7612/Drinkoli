@@ -2,21 +2,9 @@
 
     class Footer {
 
-        private $on;
-
-        public function __construct($on = true) {
-            $this->on = $on;
-        }
-
-        public function show()
+        public static function show()
         {
-            if ($this->on)
-                include 'partials/footer.php';
+            include 'partials/footer.php';
         }
-
-        public static function empty()
-        {
-            return new static(false);
-        }
-
+        
     }

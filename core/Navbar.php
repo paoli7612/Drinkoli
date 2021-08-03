@@ -10,6 +10,11 @@
             $this->title = $title;
             $this->icon = $icon;
         }
+
+        public function show()
+        {
+            include 'partials/navbar-item.php';
+        }
     };
 
     class Navbar {
