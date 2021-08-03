@@ -1,7 +1,8 @@
 <?php $title = 'Sing in' ?>
 <?php include 'views/layouts/page_start.php' ?>
 
-<div class="w3-panel w3-third">
+<div class="w3-panel">
+    
     <div class="w3-panel w3-green w3-card-4 w3-round-large">
         <div class="w3-panel">
             <form action="sing-in" method="post">

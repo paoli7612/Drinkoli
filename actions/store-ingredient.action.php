@@ -1,4 +1,4 @@
 <?php
 
-    Ingredient::create($database, $_POST['name']);
+    Ingredient::create($_POST['name']);
     header('Location: ingredients');

@@ -23,9 +23,9 @@
             array_push($this->items, new ButtonItem($link, $title, $icon));
         }
 
-        public function show($t)
+        public function show($template, $title = '')
         {
-            include 'partials/templates/' . $t . '.php';
+            include 'partials/templates/' . $template . '.php';
         }
 
     }

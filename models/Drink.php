@@ -7,7 +7,7 @@
 
         public $ingredients;
 
-        public static function create($database, $name)
+        public static function create($name)
         {
             $slug = slug($name);
             Database::create("drinks", "`name`, `slug`", "'$name', '$slug'");

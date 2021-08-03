@@ -8,7 +8,7 @@
         public static function create($name)
         {
             $slug = slug($name);
-            Database::create('ingredients', "(`name`, `slug`)", "'$name', '$slug'");
+            Database::create('ingredients', "`name`, `slug`", "'$name', '$slug'");
         }
 
         public static function all()

@@ -27,6 +27,7 @@
 
         public static function query($query)
         {
+            //print_r($query);
             $s = self::$pdo->prepare($query);
             $s->execute();
             return $s->fetchAll();

@@ -3,24 +3,23 @@
     include 'layouts/page_start.php';
 ?>
 
-<div class="w3-twothird w3-panel">
+<div class="w3-panel">
     <div class="w3-container w3-theme w3-padding w3-round-large w3-card-4 w3-margin-bottom w3-display-container">
+    <h1 class="w3-margin-left w3-left">Account</h1>
         <div class="w3-right w3-margin">
-            <?php Auth::img(300) ?>
+            <?php Auth::img(250) ?>
         </div>
-        <div class="w3-display-left w3-margin-left">
-            <h3><?= Auth::$user->email ?></h3>
-            <h5><?= Auth::$user->username ?></h5>
+        <div class="w3-display-bottomleft w3-margin-left">
+            <h2><?= Auth::$user->username ?></h2>
+            <h4><?= Auth::$user->email ?></h4>
         </div>
     </div>
 </div>
-<div class="w3-third w3-panel">
-    <div class="w3-container w3-theme w3-round-large w3-card-4 w3-margin-bottom">
-        <h1>Settings</h1>
+<div class="w3-panel">
+    <div class="w3-container w3-theme w3-round-large w3-card-4">
+        <h1 class="w3-right w3-margin-right">Settings</h1>
         <div class="w3-panel">
             <form action="account" method="post">
-                <label for="">Theme</label>
-                <br>
                 <select onchange="cambia_tema(this.value)" name="theme" id="theme" class="w3-select w3-round-large w3-half">
                     <?php foreach (App::themes() as $color) : ?>
                         <option value="<?= $color ?>" <?= (Auth::theme() == $color) ? 'selected' : '' ?>><?= $color ?>
@@ -30,17 +29,6 @@
                 <button type="submit" value="" class="w3-button w3-round-large w3-white w3-margin-left">
                     <i class="fas fa-save"></i>    
                     Save
-                </button>
-            </form>
-        </div>
-        <div class="w3-panel">
-            <form action="account" method="post">
-                <label for="">Change username</label>
-                <br>
-                <input type="text" name="" class="w3-select w3-round-large w3-half">
-                <button disabled type="submit" value="" class="w3-button w3-round-large w3-white w3-margin-left" placeholder="new username">
-                    <i class="fas fa-save"></i>    
-                    Change
                 </button>
             </form>
         </div>

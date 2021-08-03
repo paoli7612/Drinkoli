@@ -1,4 +1,4 @@
 <?php
 
-    Drink::create($database, $_POST['name']);
+    Drink::create($_POST['name']);
     header('Location: drinks');
