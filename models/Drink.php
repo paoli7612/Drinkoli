@@ -13,9 +13,9 @@
             Database::create("drinks", "`name`, `slug`", "'$name', '$slug'");
         }
 
-        public static function delete($database, $slug)
+        public static function delete($slug)
         {
-            $database->query("DELETE FROM `drinks` WHERE `slug`='$slug';");
+            //Database::delete('drinks', `slug`, "'$slug'", 'Drink');
         }
 
         public static function all()
@@ -23,9 +23,9 @@
             return Database::select_all('drinks', 'Drink');
         }
 
-        public static function find(Database $database, $slug)
+        public static function find($slug)
         {
-            return $database->find('drinks', 'slug' , $slug, 'Drink')[0];
+            return Database::find('drinks', 'slug', $slug, 'Drink');
         }
 
         public function route()
@@ -33,18 +33,18 @@
             return 'drinks/' . $this->slug;
         }
 
-        public function load($database)
+        public function load()
         {
-            $this->ingredients = $database->query("SELECT * FROM ingredient_drink, ingredients WHERE drink_id=$this->id AND ingredient_id=ingredients.id");
+            $this->ingredients = Database::query("SELECT * FROM ingredient_drink, ingredients WHERE drink_id=$this->id AND ingredient_id=ingredients.id");
         }
 
         public function add_ingredient($database, $ingredient_id)
         {
-            $database->create('ingredient_drink', "`drink_id`, `ingredient_id`", "$this->id, $ingredient_id");
+            Database::create('ingredient_drink', "`drink_id`, `ingredient_id`", "$this->id, $ingredient_id");
         }
 
         public function remove_ingredients($database)
         {
-            $database->delete('ingredient_drink', "drink_id=$this->id");
+            Database::delete('ingredient_drink', "drink_id=$this->id");
         }
     }

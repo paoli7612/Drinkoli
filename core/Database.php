@@ -53,7 +53,7 @@
         {
             $statement = self::$pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");
             $statement->setFetchMode(PDO::FETCH_CLASS, $className);
-            return $statement->fetchAll();
+            return $statement->fetch();
         }
 
         public static function create($table, $columns, $values)
