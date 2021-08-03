@@ -2,70 +2,66 @@
 
     class Database {
 
-        private $pdo;
+        private static $pdo;
+        
+        private static $config;
 
-        private $username;
-        private $password;
-        private $host;
-
-        public function reset()
+        public static function reset()
         {
-            $this->pdo = new PDO("mysql:host=$this->host", $this->username, $this->password);
+            $config = self::$config;
+            Database::$pdo = new PDO("mysql:host=" . $config['host'], $config['username'], $config['password']);
             $query = file_get_contents("database.sql");
-            $statement = $this->pdo->prepare($query);
-            $statement->execute();
+            self::query($query);
         }
 
-        public function __construct($config) {
+        public static function init($config) {
             
-            $this->username = $config['username'];
-            $this->password = $config['password'];
-            $this->host = $config['host'];
-            $this->dbname = $config['dbname'];
+            Database::$config = $config;
+
             try {
-                $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
+                self::$pdo = new PDO("mysql:host=" . $config['host'] . ";dbname=" . $config['dbname'], $config['username'], $config['password']);
             } catch (PDOException $exception) {
                 if ($exception->getCode() == 1049) // database non creato
-                    $this->reset();
+                    self::reset();
                 else
                     die($exception->getMessage());
             }
         }
 
-        public function query($query)
+        public static function query($query)
         {
-            $s = $this->pdo->prepare($query);
+            $s = self::$pdo->prepare($query);
             $s->execute();
             return $s->fetchAll();
         }
 
-        public function select_all($table, $className)
+        public static function select_all($table, $className)
         {
-            $statement = $this->pdo->query("SELECT * FROM {$table};");
+            $statement = self::$pdo->query("SELECT * FROM {$table};");
             $statement->setFetchMode(PDO::FETCH_CLASS, $className);
             return $statement->fetchAll();
         }
 
-        public function select_where($table, $className, $args)
+        public static function select_where($table, $className, $args)
         {
-            $statement = $this->pdo->query("SELECT * FROM {$table} WHERE $args;");
+            $statement = self::$pdo->query("SELECT * FROM {$table} WHERE $args;");
             $statement->setFetchMode(PDO::FETCH_CLASS, $className);
             return $statement->fetchAll();
         }
 
-        public function find($table, $column, $value, $className)
+        public static function find($table, $column, $value, $className)
         {
-            $statement = $this->pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");
+            $statement = self::$pdo->query("SELECT * FROM {$table} WHERE {$column}='{$value}';");
             $statement->setFetchMode(PDO::FETCH_CLASS, $className);
-            return $statement->fetchAll();
+            return $statement->fetch();
         }
 
-        public function create($table, $columns, $values)
+        public static function create($table, $columns, $values)
         {
-            $this->query("INSERT INTO $table ($columns) VALUES ($values);");
+            self::query("INSERT INTO $table ($columns) VALUES ($values);");
         }
 
-        public function delete($table, $where)
+        public static function delete($table, $where)
         {
             $this->query("DELETE FROM $table WHERE $where;");
         }

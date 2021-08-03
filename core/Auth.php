@@ -6,18 +6,17 @@
         private static $database;
         public static $user;
         
-        public static function init($database)
+        public static function init()
         {
             session_start();
-            Auth::$database = $database;
             if (Auth::$isLogin = array_key_exists('login_id', $_SESSION))
-                Auth::$user = Auth::$database->select_where('users', 'User', " id=" . $_SESSION['login_id'] . ";")[0]; 
+                Auth::$user = Database::select_where('users', 'User', " id=" . $_SESSION['login_id'] . ";")[0]; 
         }
 
         public static function login($username, $password)
         {
             require_once 'models/User.php';
-            $res = Auth::$database->select_where('users', 'User', " username='$username' AND  password='$password';");
+            $res = Database::select_where('users', 'User', " username='$username' AND  password='$password';");
             if (count($res) == 1)
             {
                 Auth::$user = $res[0];
@@ -34,15 +33,7 @@
         {
             $user = Auth::$user;
 
-            print_r("
-            UPDATE users 
-            SET 
-                theme='$user->theme',
-                username='$user->username',
-            WHERE
-                `id` = '$user->id';
-        ");
-            Auth::$database->query("
+            Database::query("
                 UPDATE users 
                 SET 
                     theme='$user->theme',

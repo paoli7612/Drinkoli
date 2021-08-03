@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach (Ingredient::all($database) as $ingredient): ?>
+        <?php foreach (Ingredient::all() as $ingredient): ?>
             <tr class="w3-hover-theme" onclick="window.location='<?= $ingredient->route() ?>'">
                 <td><?= $ingredient->name ?></td>
                 <td><?= $ingredient->slug ?></td>

@@ -1,21 +1,10 @@
 <?php
 
-    include 'core/functions.php';
-    include 'core/App.php';
-    include 'core/Request.php';
-    include 'core/Router.php';
-    include 'core/Navbar.php';
-    include 'core/Footer.php';
-    include 'core/Database.php';
-    include 'core/Auth.php';
+    include 'bootstrap.php';
     
-    include 'models/Drink.php';
-    include 'models/Ingredient.php';
-    include 'models/User.php';
-
-    $config = require_once('config.php');
-    $database = new Database($config['database']);
-    Auth::init($database);
+    $config = require('config.php');
+    Database::init($config['database']);
+    Auth::init();
     
     if (! Auth::$isLogin)
     {
@@ -34,7 +23,7 @@
         $router->post('sing-up', 'auth/register');
         
         $footer = Footer::empty();
-        require_once $router->direct(Request::uri(), Request::method());
+        require $router->direct(Request::uri(), Request::method());
         die();
     }
 
@@ -58,7 +47,7 @@
 
     $footer = new Footer;
 
-    foreach (Drink::all($database) as $drink) {
+    foreach (Drink::all() as $drink) {
         $router->get($drink->route(), 'drink/show');
         $router->get($drink->route() . '?delete', 'drink/delete');
         $router->get($drink->route() . '?edit', 'drink/edit');
@@ -66,7 +55,7 @@
         $router->post($drink->route(), 'drink-set-ingredients');
     }
 
-    foreach (Ingredient::all($database) as $ingredient) {
+    foreach (Ingredient::all() as $ingredient) {
         $router->get($ingredient->route(), 'ingredient/show', $ingredient);
     }
     
@@ -75,7 +64,7 @@
     $router->post('logout', 'auth/logout');
     $router->post('account', 'account');
 
-    require_once $router->direct(Request::uri(), Request::method());
+    require $router->direct(Request::uri(), Request::method());
 
     
 
