@@ -50,6 +50,6 @@
 
         public static function img($size)
         {
-            echo "<img class=\"w3-image w3-circle w3-card-4\" src=\"https://i.pravatar.cc/$size?u=fake@pravatar.com\"></img>";
+            echo "<img class=\"w3-image w3-circle w3-card-4\" src=\"https://i.pravatar.cc/$size?u=" . self::$user->email . "\"></img>";
         }
     }
