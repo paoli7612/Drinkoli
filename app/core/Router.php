@@ -59,10 +59,10 @@ class Router
         self::$redir[$uri] = $dest;
     }
 
-    public function print()
+    public static function print()
     {
         echo '<table class="w3-table-all">';
-        foreach ($this->routes as $method => $routes) {
+        foreach (self::$routes as $method => $routes) {
             echo '<thead><tr><th>' . $method . '</th></tr>';
             echo '<tbody>';
             foreach ($routes as $route => $dest) {

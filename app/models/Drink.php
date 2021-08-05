@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 use App\Database;
 use App\Router;
 
@@ -26,12 +28,12 @@ class Drink
 
     public static function all()
     {
-        return Database::select_all('drinks', 'Drink');
+        return Database::select_all('drinks', self::class);
     }
 
     public static function find($slug)
     {
-        return Database::find('drinks', 'slug', $slug, 'Drink');
+        return Database::find('drinks', 'slug', $slug, self::class);
     }
 
     public function route()
@@ -57,6 +59,8 @@ class Drink
     public static function routes()
     {
         Router::get('drinks', 'drink/all');
+        Router::get('drinks?new', 'drink/new');
+
         foreach (self::all() as $drink) {
             Router::get($drink->route(), 'drink/show');
         }

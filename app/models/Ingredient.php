@@ -1,28 +1,34 @@
 <?php
-    class Ingredient {
+namespace App\Models;
 
-        public $id;
-        public $name;
-        public $slug;
+use App\Database;
 
-        public static function create($name)
-        {
-            $slug = slug($name);
-            Database::create('ingredients', "`name`, `slug`", "'$name', '$slug'");
-        }
+use function App\Tools\slug;
 
-        public static function all()
-        {
-            return Database::select_all('ingredients', 'Ingredient');
-        }
+class Ingredient
+{
+    public $id;
+    public $name;
+    public $slug;
 
-        public static function find($slug)
-        {
-            return Database::find('ingredients', 'slug' , $slug, 'Ingredient');
-        }
-
-        public function route()
-        {
-            return 'ingredients/' . $this->slug;
-        }
+    public static function create($name)
+    {
+        $slug = slug($name);
+        Database::create('ingredients', "`name`, `slug`", "'$name', '$slug'");
     }
+
+    public static function all()
+    {
+        return Database::select_all('ingredients', 'Ingredient');
+    }
+
+    public static function find($slug)
+    {
+        return Database::find('ingredients', 'slug', $slug, 'Ingredient');
+    }
+
+    public function route()
+    {
+        return 'ingredients/' . $this->slug;
+    }
+}

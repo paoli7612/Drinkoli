@@ -1,7 +1,8 @@
 <?php
     use App\App;
     use App\Auth;
-    use App\Router;
+use App\Models\Drink;
+use App\Router;
 
     include "vendor/autoload.php";
 
@@ -15,9 +16,6 @@
         Router::get('', 'home');
         Drink::routes();
         Router::get('account', 'account');
-
-        Router::get('reset', 'reset');
-        Router::get('db', 'database');
     } else {
         App::$navbar->add('sing-in', 'Sing-in', 'fa fa-sign-in-alt');
         App::$navbar->add('sing-up', 'Sing-up', 'fa fa-user-plus');
@@ -27,11 +25,13 @@
         Router::get('sing-in', 'auth/sing-in');
         Router::get('sing-up', 'auth/sing-up');
 
-        Router::get('reset', 'reset');
-        Router::get('db', 'database');
         
         Router::post('sing-in', 'auth/login');
         Router::post('sing-up', 'auth/register');
     }
+
+    Router::get('reset', 'reset');
+    Router::get('db', 'database');
+    Router::get('routes', 'routes');
     
     include Router::direct();

@@ -1,5 +1,6 @@
 <?php
     use App\ButtonList;
+use App\Models\Drink;
 
 $title = 'Drinks';
     include 'app/views/layouts/page_start.php';

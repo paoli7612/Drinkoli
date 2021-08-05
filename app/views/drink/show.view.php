@@ -1,9 +1,10 @@
 <?php
 
-use App\ButtonList;
-use App\Request;
+    use App\ButtonList;
+    use App\Models\Drink;
+    use App\Request;
 
-$slug = Request::uri('drinks/');
+    $slug = Request::uri('drinks/');
     $drink = Drink::find($slug);
     $drink->load();
 
