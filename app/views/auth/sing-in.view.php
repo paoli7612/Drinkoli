@@ -1,5 +1,5 @@
 <?php $title = 'Sing in' ?>
-<?php include 'views/layouts/page_start.php' ?>
+<?php include 'app/views/layouts/page_start.php' ?>
 
 <div class="w3-panel">
     

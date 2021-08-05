@@ -1,3 +1,6 @@
 <?php
-    Auth::login($_POST['username'], $_POST['password']);
+
+use App\Auth;
+
+Auth::login($_POST['username'], $_POST['password']);
     header('Location: /');

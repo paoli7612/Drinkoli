@@ -1,5 +1,8 @@
 <?php
-    print_r(Database::reset());
+
+use App\Database;
+
+print_r(Database::reset());
 ?>
 
 Database resettato

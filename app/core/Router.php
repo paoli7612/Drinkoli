@@ -1,4 +1,5 @@
 <?php
+    namespace App;
 
 class Router
 {
@@ -44,12 +45,12 @@ class Router
             header('Location: ' . self::$redir[$uri]);
         } elseif (array_key_exists($uri, self::$routes[$method])) {
             if ($method == 'GET') {
-                return 'views/' .  self::$routes[$method][$uri] . '.view.php';
+                return 'app/views/' .  self::$routes[$method][$uri] . '.view.php';
             } else {
-                return 'actions/' .  self::$routes[$method][$uri] . '.action.php';
+                return 'app/actions/' .  self::$routes[$method][$uri] . '.action.php';
             }
         } else {
-            return 'views/404.view.php';
+            return 'app/views/404.view.php';
         }
     }
 

@@ -1,6 +1,8 @@
 <?php
+    namespace App\Tools;
 
-    function slug($text) {
+    function slug($text)
+    {
         $divider = '-';
         $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
         $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
