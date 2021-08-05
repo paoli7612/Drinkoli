@@ -18,6 +18,7 @@
         public static function init()
         {
             self::$config = App::$config['database'];
+
             try {
                 self::$pdo = new \PDO("mysql:host=" . self::$config['host'] . ";dbname=" . self::$config['dbname'], self::$config['username'], self::$config['password']);
             } catch (\PDOException $exception) {

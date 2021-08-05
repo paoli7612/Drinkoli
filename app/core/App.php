@@ -12,6 +12,7 @@ class App
         self::$config = require('config.php');
         self::$navbar = new ButtonList();
         Database::init();
+        Auth::init();
     }
 
     public static function themes()

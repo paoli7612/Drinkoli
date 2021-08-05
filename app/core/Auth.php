@@ -4,7 +4,6 @@
     class Auth
     {
         public static $isLogin;
-        private static $database;
         public static $user;
         
         public static function init()

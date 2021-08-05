@@ -1,11 +1,13 @@
 <?php
 
-use App\App;
-use App\Auth;
-use App\Database;
+    echo 'asd';
 
-App::init();
-Database::init();
+    use App\App;
+    use App\Auth;
+    use App\Database;
 
-Auth::login($_POST['username'], $_POST['password']);
+    App::init();
+    Database::init();
+
+    Auth::login($_POST['username'], $_POST['password']);
     header('Location: /');
