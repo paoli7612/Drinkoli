@@ -16,6 +16,7 @@ use App\Router;
         Router::get('', 'home');
         Drink::routes();
         Router::get('account', 'account');
+        Router::post('account', 'account');
     } else {
         App::$navbar->add('sing-in', 'Sing-in', 'fa fa-sign-in-alt');
         App::$navbar->add('sing-up', 'Sing-up', 'fa fa-user-plus');
