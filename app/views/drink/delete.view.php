@@ -1,10 +1,10 @@
 <?php
-$slug = Request::uri('drinks/', '?delete');
-$drink = Drink::find($slug);
-?>
+    use App\Models\Drink;
+    use App\Request;
 
-<?php $title = 'Drink / ' . $drink->name ?>
-<?php include 'views/layouts/page_start.php' ?>
+    $slug = Request::uri('drinks/', '?delete');
+    $drink = Drink::find($slug);
+?>
 
 <div class="w3-panel w3-theme-l2 w3-round-large w3-card-4">
     <div class="w3-panel">
@@ -22,8 +22,5 @@ $drink = Drink::find($slug);
             </a>
         </form>
     </div>
-
 </div>
 
-
-<?php include 'views/layouts/page_end.php' ?>

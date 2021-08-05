@@ -2,9 +2,6 @@
     use App\ButtonList;
 use App\Models\Drink;
 
-$title = 'Drinks';
-    include 'app/views/layouts/page_start.php';
-
     $tools = new ButtonList;
     $tools->add("/drinks?new", 'New Drink', 'fas fa-plus');
 ?>
@@ -29,4 +26,3 @@ $title = 'Drinks';
         </tbody>
     </table>
 </div>
-<?php include 'app/views/layouts/page_end.php' ?>

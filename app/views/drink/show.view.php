@@ -13,9 +13,6 @@
     $tools->add("/" . Request::uri() . "?edit", 'Edit Drink', 'fas fa-edit');
 ?>
 
-<?php $title = 'Drink / '. $drink->name ?>
-<?php include 'app/views/layouts/page_start.php' ?>
-
 <?php $tools->show('tools') ?>
 
 <div class="w3-panel w3-theme-l2 w3-card-4 w3-round-large">
@@ -28,4 +25,3 @@
 </div>
 
 
-<?php include 'app/views/layouts/page_end.php' ?>

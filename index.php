@@ -34,4 +34,6 @@ use App\Router;
     Router::get('db', 'database');
     Router::get('routes', 'routes');
     
+    include 'app/views/layouts/page_start.php';
     include Router::direct();
+    include 'layouts/page_end.php';

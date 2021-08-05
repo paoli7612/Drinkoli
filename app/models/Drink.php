@@ -63,6 +63,7 @@ class Drink
 
         foreach (self::all() as $drink) {
             Router::get($drink->route(), 'drink/show');
+            Router::get($drink->route() . '?delete', 'drink/delete');
         }
     }
 }

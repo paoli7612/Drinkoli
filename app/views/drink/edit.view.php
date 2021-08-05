@@ -4,8 +4,6 @@
     $drink->load();
 ?>
 
-<?php $title = 'Drink / '. $drink->name ?>
-<?php include 'views/layouts/page_start.php' ?>
 
 <h1><?= $drink->name ?></h1>
 
@@ -63,4 +61,3 @@
 </script>
 
     
-<?php include 'views/layouts/page_end.php' ?>
