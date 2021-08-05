@@ -1,5 +1,6 @@
 <?php
-include 'bootstrap.php';
+
+include "vendor/autoload.php";
 
 App::init();
 Database::init();
@@ -51,5 +52,5 @@ if (Auth::$isLogin) {
     Router::post('sing-in', 'auth/login');
     Router::post('sing-up', 'auth/register');
 
-    require Router::direct(Request::uri(), Request::method());
+    require Router::direct();
 }

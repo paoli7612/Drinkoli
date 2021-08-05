@@ -2,7 +2,6 @@
 
 class Router
 {
-
     protected static $redir = [];
 
     protected static $routes = [
@@ -37,18 +36,21 @@ class Router
         self::add($uri, 'DELETE', $dest);
     }
 
-    public static function direct($uri, $method)
+    public static function direct()
     {
-        if (array_key_exists($uri, self::$redir))
+        $uri = Request::uri();
+        $method = Request::method();
+        if (array_key_exists($uri, self::$redir)) {
             header('Location: ' . self::$redir[$uri]);
-        else if (array_key_exists($uri, self::$routes[$method])) {
+        } elseif (array_key_exists($uri, self::$routes[$method])) {
             if ($method == 'GET') {
                 return 'views/' .  self::$routes[$method][$uri] . '.view.php';
             } else {
                 return 'actions/' .  self::$routes[$method][$uri] . '.action.php';
             }
-        } else
+        } else {
             return 'views/404.view.php';
+        }
     }
 
     public static function redirect($uri, $dest)
