@@ -66,4 +66,12 @@
         {
             self::query("DELETE FROM $table WHERE $where;");
         }
+
+        public static function print()
+        {
+            foreach (self::query("SELECT * FROM users") as $row) {
+                print_r($row);
+                echo '<br>';
+            }
+        }
     }

@@ -43,6 +43,7 @@
         Router::get('sing-in', 'auth/sing-in');
         Router::get('sing-up', 'auth/sing-up');
         Router::get('reset', 'reset');
+        Router::get('db', 'database');
         Router::post('sing-in', 'auth/login');
         Router::post('sing-up', 'auth/register');
     }
