@@ -1,7 +1,8 @@
 <?php
-    $title = 'Drinks';
-    
-    include 'views/layouts/page_start.php';
+    use App\ButtonList;
+
+$title = 'Drinks';
+    include 'app/views/layouts/page_start.php';
 
     $tools = new ButtonList;
     $tools->add("/drinks?new", 'New Drink', 'fas fa-plus');
@@ -27,7 +28,4 @@
         </tbody>
     </table>
 </div>
-
-
-
-<?php include 'views/layouts/page_end.php' ?>
+<?php include 'app/views/layouts/page_end.php' ?>

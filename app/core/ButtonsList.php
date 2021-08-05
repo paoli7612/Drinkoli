@@ -14,6 +14,11 @@
             $this->title = $title;
             $this->icon = $icon;
         }
+
+        public function get_icon()
+        {
+            return "<i class=\"$this->icon\"></i>";
+        }
     }
 
     class ButtonList

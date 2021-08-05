@@ -1,50 +1,64 @@
 <?php
-    class Drink {
 
-        public $id;
-        public $name;
-        public $slug;
+use App\Database;
+use App\Router;
 
-        public $ingredients;
+use function App\Tools\slug;
 
-        public static function create($name)
-        {
-            $slug = slug($name);
-            Database::create("drinks", "`name`, `slug`", "'$name', '$slug'");
-        }
+class Drink
+{
+    public $id;
+    public $name;
+    public $slug;
 
-        public static function delete($slug)
-        {
-            Database::delete('drinks', "`slug`='$slug'");
-        }
+    public $ingredients;
 
-        public static function all()
-        {
-            return Database::select_all('drinks', 'Drink');
-        }
+    public static function create($name)
+    {
+        $slug = slug($name);
+        Database::create("drinks", ['name', 'slug'], [$name, $slug]);
+    }
 
-        public static function find($slug)
-        {
-            return Database::find('drinks', 'slug', $slug, 'Drink');
-        }
+    public static function delete($slug)
+    {
+        Database::delete('drinks', "`slug`='$slug'");
+    }
 
-        public function route()
-        {
-            return 'drinks/' . $this->slug;
-        }
+    public static function all()
+    {
+        return Database::select_all('drinks', 'Drink');
+    }
 
-        public function load()
-        {
-            $this->ingredients = Database::query("SELECT * FROM ingredient_drink, ingredients WHERE drink_id=$this->id AND ingredient_id=ingredients.id");
-        }
+    public static function find($slug)
+    {
+        return Database::find('drinks', 'slug', $slug, 'Drink');
+    }
 
-        public function add_ingredient($database, $ingredient_id)
-        {
-            Database::create('ingredient_drink', "`drink_id`, `ingredient_id`", "$this->id, $ingredient_id");
-        }
+    public function route()
+    {
+        return 'drinks/' . $this->slug;
+    }
 
-        public function remove_ingredients($database)
-        {
-            Database::delete('ingredient_drink', "drink_id=$this->id");
+    public function load()
+    {
+        $this->ingredients = Database::query("SELECT * FROM ingredient_drink, ingredients WHERE drink_id=$this->id AND ingredient_id=ingredients.id");
+    }
+
+    public function add_ingredient($ingredient_id)
+    {
+        Database::create('ingredient_drink', "`drink_id`, `ingredient_id`", "$this->id, $ingredient_id");
+    }
+
+    public function remove_ingredients()
+    {
+        Database::delete('ingredient_drink', "drink_id=$this->id");
+    }
+
+    public static function routes()
+    {
+        Router::get('drinks', 'drink/all');
+        foreach (self::all() as $drink) {
+            Router::get($drink->route(), 'drink/show');
         }
     }
+}

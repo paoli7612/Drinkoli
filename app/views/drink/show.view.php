@@ -1,5 +1,9 @@
 <?php
-    $slug = Request::uri('drinks/');
+
+use App\ButtonList;
+use App\Request;
+
+$slug = Request::uri('drinks/');
     $drink = Drink::find($slug);
     $drink->load();
 
@@ -9,7 +13,7 @@
 ?>
 
 <?php $title = 'Drink / '. $drink->name ?>
-<?php include 'views/layouts/page_start.php' ?>
+<?php include 'app/views/layouts/page_start.php' ?>
 
 <?php $tools->show('tools') ?>
 
@@ -23,4 +27,4 @@
 </div>
 
 
-<?php include 'views/layouts/page_end.php' ?>
+<?php include 'app/views/layouts/page_end.php' ?>

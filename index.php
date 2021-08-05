@@ -10,12 +10,10 @@
     if (Auth::$isLogin) {
         App::$navbar->add('', 'Home', 'fa fa-home');
         App::$navbar->add('drinks', 'Drinks', 'fa fa-cocktail');
-        App::$navbar->add('ingredients', 'Ingredients', 'fa fa-boxes');
         App::$navbar->add('account', 'account', 'fa fa-user');
 
         Router::get('', 'home');
-        Router::get('drinks', 'drink/all');
-        Router::get('ingredients', 'ingredient/all');
+        Drink::routes();
         Router::get('account', 'account');
 
         Router::get('reset', 'reset');

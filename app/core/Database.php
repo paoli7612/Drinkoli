@@ -70,9 +70,7 @@
 
         public static function print()
         {
-            foreach (self::query("SELECT * FROM users") as $row) {
-                print_r($row);
-                echo '<br>';
-            }
+            print_r(self::query("SELECT * FROM users"));
+            print_r(self::query("SELECT * FROM drinks"));
         }
     }
