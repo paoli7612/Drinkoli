@@ -1,14 +1,18 @@
 <?php
-    namespace App;
+
+namespace App;
 
 class Router
 {
     protected static $redir = [];
 
+    protected static $api = [];
+
     protected static $routes = [
         'GET' => [],
         'POST' => [],
         'PUT' => [],
+        'API' => [],
         'DELETE' => [],
     ];
 
@@ -37,6 +41,11 @@ class Router
         self::add($uri, 'DELETE', $dest);
     }
 
+    public static function api($uri, $dest)
+    {
+        self::add($uri, 'API', $dest);
+    }
+
     public static function direct()
     {
         $uri = Request::uri();
@@ -46,6 +55,8 @@ class Router
         } elseif (array_key_exists($uri, self::$routes[$method])) {
             if ($method == 'GET') {
                 return 'app/views/' .  self::$routes[$method][$uri] . '.view.php';
+            } else if ($method == 'API') {
+                return 'app/api/' . self::$routes[$method][$uri] . '.api.php';
             } else {
                 return 'app/actions/' .  self::$routes[$method][$uri] . '.action.php';
             }

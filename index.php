@@ -22,6 +22,8 @@
         Drink::routes();
         Router::get('account', 'account');
         Router::post('account', 'account');
+
+        Router::api('esiste-drink.nome', 'esiste-drink.nome');
     } else {
         App::$navbar->add('sing-in', 'Sing-in', 'fa fa-sign-in-alt');
         App::$navbar->add('sing-up', 'Sing-up', 'fa fa-user-plus');
@@ -32,7 +34,6 @@
         Router::get('sing-in', 'auth/sing-in');
         Router::get('sing-up', 'auth/sing-up');
         Router::get('info', 'info');
-
         
         Router::post('sing-in', 'auth/login');
         Router::post('sing-up', 'auth/register');

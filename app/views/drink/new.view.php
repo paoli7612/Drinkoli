@@ -20,7 +20,7 @@
 <script>
     var derror = $('div#error')[0];
     var nome_drink = function(text) {
-        $.getJSON('/query/nome_drink.php?name=' + text).done(function(e) {
+        $.getJSON('/esiste-drink.nome?nome=' + text).done(function(e) {
             if (e == 1) {
                 console.log("no");
                 derror.classList.replace('w3-hide', 'w3-show');
