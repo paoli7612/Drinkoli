@@ -31,6 +31,7 @@
         
         Router::get('sing-in', 'auth/sing-in');
         Router::get('sing-up', 'auth/sing-up');
+        Router::get('info', 'info');
 
         
         Router::post('sing-in', 'auth/login');
