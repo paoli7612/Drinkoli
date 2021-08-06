@@ -4,26 +4,24 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc33e2a3f593b55eab861fef057778982
+class ComposerStaticInitcc4ab6d4cfdf41e22f8ce000647e6421
 {
     public static $classMap = array (
-        'App\\App' => __DIR__ . '/../..' . '/app/core/App.php',
-        'App\\Auth' => __DIR__ . '/../..' . '/app/core/Auth.php',
-        'App\\ButtonItem' => __DIR__ . '/../..' . '/app/core/ButtonsList.php',
-        'App\\ButtonList' => __DIR__ . '/../..' . '/app/core/ButtonsList.php',
-        'App\\Database' => __DIR__ . '/../..' . '/app/core/Database.php',
-        'App\\Models\\Drink' => __DIR__ . '/../..' . '/app/models/Drink.php',
-        'App\\Models\\Ingredient' => __DIR__ . '/../..' . '/app/models/Ingredient.php',
-        'App\\Models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
-        'App\\Request' => __DIR__ . '/../..' . '/app/core/Request.php',
-        'App\\Router' => __DIR__ . '/../..' . '/app/core/Router.php',
+        'App\\App' => __DIR__ . '/../..' . '/app/App.php',
+        'App\\core\\Auth' => __DIR__ . '/../..' . '/app/core/Auth.php',
+        'App\\core\\Database' => __DIR__ . '/../..' . '/app/core/Database.php',
+        'App\\core\\Requests' => __DIR__ . '/../..' . '/app/core/Request.php',
+        'App\\core\\Route' => __DIR__ . '/../..' . '/app/core/Route.php',
+        'App\\models\\Drink' => __DIR__ . '/../..' . '/app/models/Drink.php',
+        'App\\models\\Ingredient' => __DIR__ . '/../..' . '/app/models/Ingredients.php',
+        'App\\models\\Model' => __DIR__ . '/../..' . '/app/models/Model.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInitc33e2a3f593b55eab861fef057778982::$classMap;
+            $loader->classMap = ComposerStaticInitcc4ab6d4cfdf41e22f8ce000647e6421::$classMap;
 
         }, null, ClassLoader::class);
     }

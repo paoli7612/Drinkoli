@@ -1,15 +1,18 @@
 <?php
-    namespace App;
 
-    class Request
+namespace App\core;
+
+    class Requests
     {
-        public static function uri($remove = '', $uremove = '')
-        {
-            return str_replace($uremove, '', str_replace($remove, "", trim($_SERVER['REQUEST_URI'], '/')));
-        }
-
         public static function method()
         {
             return $_SERVER['REQUEST_METHOD'];
+        }
+
+        public static function uri($index = -1)
+        {
+            $uri = trim(strtok($_SERVER["REQUEST_URI"], '?'), '/');
+            $items = explode('/', $uri);
+            return array_key_exists($index, $items) ? $items[$index] : $uri;
         }
     }

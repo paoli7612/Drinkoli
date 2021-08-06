@@ -6,15 +6,13 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\App' => $baseDir . '/app/core/App.php',
-    'App\\Auth' => $baseDir . '/app/core/Auth.php',
-    'App\\ButtonItem' => $baseDir . '/app/core/ButtonsList.php',
-    'App\\ButtonList' => $baseDir . '/app/core/ButtonsList.php',
-    'App\\Database' => $baseDir . '/app/core/Database.php',
-    'App\\Models\\Drink' => $baseDir . '/app/models/Drink.php',
-    'App\\Models\\Ingredient' => $baseDir . '/app/models/Ingredient.php',
-    'App\\Models\\User' => $baseDir . '/app/models/User.php',
-    'App\\Request' => $baseDir . '/app/core/Request.php',
-    'App\\Router' => $baseDir . '/app/core/Router.php',
+    'App\\App' => $baseDir . '/app/App.php',
+    'App\\core\\Auth' => $baseDir . '/app/core/Auth.php',
+    'App\\core\\Database' => $baseDir . '/app/core/Database.php',
+    'App\\core\\Requests' => $baseDir . '/app/core/Request.php',
+    'App\\core\\Route' => $baseDir . '/app/core/Route.php',
+    'App\\models\\Drink' => $baseDir . '/app/models/Drink.php',
+    'App\\models\\Ingredient' => $baseDir . '/app/models/Ingredients.php',
+    'App\\models\\Model' => $baseDir . '/app/models/Model.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

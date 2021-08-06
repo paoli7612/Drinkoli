@@ -2,6 +2,6 @@
 
     namespace App\models;
 
-    class Drink extends Model
+    class Ingredient extends Model
     {
     }
