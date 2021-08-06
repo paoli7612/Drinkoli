@@ -2,8 +2,7 @@
 
     use App\App;
     use App\Auth;
-    use App\Database;
-
+    App::init();
     Auth::login($_POST['username'], $_POST['password']);
 
     header('Location: /');
