@@ -1,4 +1,4 @@
-<div class="w3-panel w3-third w3-green w3-card-4 w3-round-large">
+<div class="w3-panel w3-third w3-theme w3-card-4 w3-round-large">
     <form action="login" method="post">
         <div class="w3-panel">
             <input type="text" name="email" placeholder="Email" class="w3-input w3-card-2 w3-round-large" required>

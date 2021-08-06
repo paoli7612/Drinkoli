@@ -6,4 +6,4 @@ use App\core\Route;
     Route::get('drinks', 'drinks');
     Route::get('ingredients', 'ingredients');
     Route::get('enter', 'enter');
-    Route::get('cmd', 'cmd');
+    Route::get('settings', 'settings');
