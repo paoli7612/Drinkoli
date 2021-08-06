@@ -1,8 +1,3 @@
-<?php
-
-use App\Auth;
-
-?>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -10,5 +5,5 @@ use App\Auth;
 <link href="/awesome-icons\css\all.css" rel="stylesheet">
 <title><?= $title ?? '' ?></title>
 <link rel="stylesheet" href="/style/main.css">
-<link rel="stylesheet" id="linktheme" href="https://www.w3schools.com/lib/w3-theme-<?= Auth::theme() ?>.css">
-<style> body { background-image: url('/images/back.png'); } </style>
+<link rel="stylesheet" id="linktheme" href="https://www.w3schools.com/lib/w3-theme-<?= App\Auth::theme() ?>.css">
+<style> body { background-image: url('/public/images/back.png'); } </style>
