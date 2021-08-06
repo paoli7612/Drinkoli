@@ -1,12 +1,17 @@
 <?php
     use App\App;
     use App\Auth;
-    use App\Models\Drink;
     use App\Router;
+
+    use App\Models\Drink;
 
     include "vendor/autoload.php";
 
     App::init();
+
+    Router::get('reset', 'reset');
+    Router::get('db', 'database');
+    Router::get('routes', 'routes');
 
     if (Auth::$isLogin) {
         App::$navbar->add('', 'Home', 'fa fa-home');
@@ -20,6 +25,7 @@
     } else {
         App::$navbar->add('sing-in', 'Sing-in', 'fa fa-sign-in-alt');
         App::$navbar->add('sing-up', 'Sing-up', 'fa fa-user-plus');
+        App::$navbar->add('info', 'Info', 'fas fa-info');
 
         Router::redirect('', 'sing-in');
         
@@ -30,10 +36,6 @@
         Router::post('sing-in', 'auth/login');
         Router::post('sing-up', 'auth/register');
     }
-
-    Router::get('reset', 'reset');
-    Router::get('db', 'database');
-    Router::get('routes', 'routes');
     
     include 'app/views/layouts/page_start.php';
     include Router::direct();
