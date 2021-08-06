@@ -1,6 +1,3 @@
-<?php $title = 'Sing in' ?>
-<?php include 'views/layouts/page_start.php' ?>
-
 <div class="w3-panel w3-threequarter">
     <div class="w3-panel w3-green w3-card-4 w3-round-large">
         <div class="w3-panel">
@@ -55,10 +52,4 @@
             c();
         });
     }
-
-
-
-
 </script>
-
-<?php include 'views/layouts/page_end.php' ?>

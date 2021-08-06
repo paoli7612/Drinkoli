@@ -10,13 +10,13 @@
         {
             session_start();
             if (Auth::$isLogin = array_key_exists('login_id', $_SESSION)) {
-                Auth::$user = Database::select_where('users', 'User', " id=" . $_SESSION['login_id'] . ";")[0];
+                Auth::$user = Database::select_where('users', User::class, " id=" . $_SESSION['login_id'] . ";")[0];
             }
         }
 
         public static function login($username, $password)
         {
-            $res = Database::select_where('users', 'User', " username='$username' AND  password='$password';");
+            $res = Database::select_where('users', User::class, " username='$username' AND  password='$password';");
             if (count($res) == 1) {
                 Auth::$user = $res[0];
                 $_SESSION['login_id'] = Auth::$user->id;

@@ -1,8 +1,8 @@
 <?php
     use App\App;
     use App\Auth;
-use App\Models\Drink;
-use App\Router;
+    use App\Models\Drink;
+    use App\Router;
 
     include "vendor/autoload.php";
 
@@ -37,4 +37,4 @@ use App\Router;
     
     include 'app/views/layouts/page_start.php';
     include Router::direct();
-    include 'layouts/page_end.php';
+    include 'app/views/layouts/page_end.php';

@@ -6,7 +6,7 @@
     Database::init();
     Auth::init();
 
-    if (empty(Database::select_where('users', 'User', "`email` = '".$_GET['email']."';")))
+    if (empty(Database::select_where('users', User::class, "`email` = '".$_GET['email']."';")))
         echo 0;
     else echo 1;
 

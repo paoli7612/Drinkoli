@@ -12,3 +12,8 @@
         $text = strtolower($text);
         return $text;
     }
+
+    function app_start($title)
+    {
+        require 'app/views/layouts/page_start.php';
+    }
