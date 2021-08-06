@@ -1,7 +1,9 @@
 <?php
     namespace App;
 
-    class Auth
+use App\Models\User;
+
+class Auth
     {
         public static $isLogin;
         public static $user;
@@ -16,7 +18,7 @@
 
         public static function login($username, $password)
         {
-            $res = Database::select_where('users', User::class, " username='$username' AND  password='$password';");
+            $res = Database::select_where('users', User::class, " username='$username' AND password='$password';");
             if (count($res) == 1) {
                 Auth::$user = $res[0];
                 $_SESSION['login_id'] = Auth::$user->id;
