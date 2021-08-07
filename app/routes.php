@@ -3,7 +3,7 @@
     use App\core\Router;
     use App\models\Drink;
 
-    Router::get('reset', 'cmd/reset');
+    Router::post('reset', 'reset.database');
 
     Router::get('', 'home');
     Drink::route();

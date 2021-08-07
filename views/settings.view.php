@@ -19,7 +19,12 @@ use App\App;
 </div>
 
 <div class="w3-panel w3-card-4 w3-theme w3-card-4 w3-round-large w3-padding-16 w3-twothird">
-    <a href="/reset"> Reset Database </a>
+    <form action="/reset" method="POST">
+        <button type="submit" class="w3-button w3-white w3-card-2 w3-round-large" >
+                <i class="fas fa-database"></i>
+            Reset Database
+        </button>
+    </form>
 </div>
 <script>
 
