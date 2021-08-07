@@ -24,6 +24,15 @@ class App
             include Router::direct();
         }
     }
+
+    public static function theme()
+    {
+        if (array_key_exists('theme', $_COOKIE)) {
+            return $_COOKIE['theme'];
+        } else {
+            return 'green';
+        }
+    }
         
     public static function themes()
     {
