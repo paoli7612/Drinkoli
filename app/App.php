@@ -11,6 +11,7 @@ class App
         
     public static function init()
     {
+        session_start();
         self::$config = require('config.php');
     }
 
@@ -37,5 +38,22 @@ class App
     public static function themes()
     {
         return ['red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal', 'green', 'light-green', 'lime', 'khaki', 'yellow', 'amber', 'orange', 'deep-orange', 'blue-grey', 'brown', 'grey', 'dark-grey', 'black'];
+    }
+
+    public static function set_log($message)
+    {
+        setcookie('log', $message);
+    }
+
+    public static function get_log()
+    {
+        $log = $_COOKIE['log'];
+        setcookie('log', '', time()-1);
+        return $log;
+    }
+
+    public static function has_log()
+    {
+        return isset($_COOKIE['log']);
     }
 }

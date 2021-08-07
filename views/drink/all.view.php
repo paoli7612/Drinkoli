@@ -14,11 +14,10 @@
     </form>
 </div>
 
-
 <div class="w3-panel">
     <table class="w3-table-all">
         <?php foreach ($drinks as $drink): ?>
-            <tr>
+            <tr class="w3-hover-theme" style="cursor: pointer">
                 <td>
                     <?= $drink->name ?>
                 </td>

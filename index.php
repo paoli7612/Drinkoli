@@ -3,6 +3,7 @@
     use App\App;
 
     App::init();
+
     App::load();
 ?>
 

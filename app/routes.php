@@ -3,6 +3,8 @@
     use App\core\Router;
     use App\models\Drink;
 
+    Router::get('reset', 'cmd/reset');
+
     Router::get('', 'home');
     Drink::route();
     Router::get('ingredients', 'ingredient/all');

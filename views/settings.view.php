@@ -18,6 +18,9 @@ use App\App;
     </form>
 </div>
 
+<div class="w3-panel w3-card-4 w3-theme w3-card-4 w3-round-large w3-padding-16 w3-twothird">
+    <a href="/reset"> Reset Database </a>
+</div>
 <script>
 
     var cambia_tema = function (color) {
