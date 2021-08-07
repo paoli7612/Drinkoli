@@ -58,7 +58,17 @@ class Database
 
     public static function create($table, $columns, $values)
     {
-        self::query("INSERT INTO $table ($columns) VALUES ($values);");
+        $query = "INSERT INTO $table (";
+        foreach ($columns as $c) {
+            $query = $query . "`$c`,";
+        }
+        $query = substr($query, 0, -1) . ') VALUES (';
+        foreach ($values as $c) {
+            $query = $query . "'$c',";
+        }
+        $query = substr($query, 0, -1) . ');';
+        echo $query;
+        self::query($query);
     }
 
     public static function delete($table, $where)
