@@ -1,6 +1,7 @@
 <?php
     namespace App;
 
+use App\core\Request;
 use App\core\Router;
 
 class App
@@ -15,9 +16,13 @@ class App
 
     public static function load()
     {
-        include 'views/layout/page_start.php';
-        include Router::direct();
-        include 'views/layout/page_end.php';
+        if (Request::method() == 'GET') {
+            include 'views/layout/page_start.php';
+            include Router::direct();
+            include 'views/layout/page_end.php';
+        } else {
+            include Router::direct();
+        }
     }
         
     public static function themes()

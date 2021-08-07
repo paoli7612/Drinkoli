@@ -1,1 +1,4 @@
-<h1>Asd</h1>
+<?php
+
+
+    header('Location: /drinks');

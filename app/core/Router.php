@@ -26,9 +26,12 @@
 
         public static function direct()
         {
-            print_r(self::$routes);
-            if (array_key_exists(Requests::uri(), self::$routes[Requests::method()])) {
-                return view(self::$routes[Requests::method()][Requests::uri()]);
+            if (array_key_exists(Request::uri(), self::$routes[Request::method()])) {
+                if (Request::method() == 'GET') {
+                    return view(self::$routes[Request::method()][Request::uri()]);
+                } else {
+                    return action(self::$routes[Request::method()][Request::uri()]);
+                }
             } else {
                 return view('404');
             }

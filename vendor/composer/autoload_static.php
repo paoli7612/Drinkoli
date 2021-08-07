@@ -10,7 +10,7 @@ class ComposerStaticInitcc4ab6d4cfdf41e22f8ce000647e6421
         'App\\App' => __DIR__ . '/../..' . '/app/App.php',
         'App\\core\\Auth' => __DIR__ . '/../..' . '/app/core/Auth.php',
         'App\\core\\Database' => __DIR__ . '/../..' . '/app/core/Database.php',
-        'App\\core\\Requests' => __DIR__ . '/../..' . '/app/core/Request.php',
+        'App\\core\\Request' => __DIR__ . '/../..' . '/app/core/Request.php',
         'App\\core\\Router' => __DIR__ . '/../..' . '/app/core/Router.php',
         'App\\models\\Drink' => __DIR__ . '/../..' . '/app/models/Drink.php',
         'App\\models\\Ingredient' => __DIR__ . '/../..' . '/app/models/Ingredients.php',

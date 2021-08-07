@@ -2,7 +2,7 @@
 
 namespace App\core;
 
-    class Requests
+    class Request
     {
         public static function method()
         {

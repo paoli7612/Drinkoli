@@ -1,5 +1,5 @@
 <?php
 
-use App\core\Requests;
+use App\core\Request;
 
-print_r(Requests::);
+print_r(Request::);

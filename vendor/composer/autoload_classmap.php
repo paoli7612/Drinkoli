@@ -9,7 +9,7 @@ return array(
     'App\\App' => $baseDir . '/app/App.php',
     'App\\core\\Auth' => $baseDir . '/app/core/Auth.php',
     'App\\core\\Database' => $baseDir . '/app/core/Database.php',
-    'App\\core\\Requests' => $baseDir . '/app/core/Request.php',
+    'App\\core\\Request' => $baseDir . '/app/core/Request.php',
     'App\\core\\Router' => $baseDir . '/app/core/Router.php',
     'App\\models\\Drink' => $baseDir . '/app/models/Drink.php',
     'App\\models\\Ingredient' => $baseDir . '/app/models/Ingredients.php',
