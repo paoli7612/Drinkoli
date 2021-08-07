@@ -3,7 +3,6 @@
 namespace App\core;
 
 use App\App;
-use App\models\Model;
 use PDO;
 
 class Database

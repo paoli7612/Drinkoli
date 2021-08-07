@@ -1,9 +1,12 @@
 <?php
 
-use App\core\Route;
+use App\core\Router;
+use App\models\Drink;
 
-    Route::get('', 'home');
-    Route::get('drinks', 'drink/all');
-    Route::get('ingredients', 'ingredient/all');
-    Route::get('enter', 'enter');
-    Route::get('settings', 'settings');
+Router::get('', 'home');
+
+    Drink::route();
+
+    Router::get('ingredients', 'ingredient/all');
+    Router::get('enter', 'enter');
+    Router::get('settings', 'settings');
